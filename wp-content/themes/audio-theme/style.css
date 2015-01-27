@@ -1,0 +1,234 @@
+/*	
+Theme Name: Audio Theme
+Author: Valerie Sundman
+Version: 0.1
+License: GPLv3
+*/
+
+/*TABLE OF CONTENTS
+== GLOBAL STYLES
+== TOP NAV WITH SOCIAL MEDIA ICONS AND SEARCH BAR
+== SOCIAL MEDIA ICONS - GENERICONS
+== TITLE STYLES
+== Main Nav Menu
+
+
+
+
+*/
+/*COLORS USED IN THIS THEME
+#f1f0ec = light grey
+
+*/
+
+/*GLOBAL STYLES*/
+body{
+	font-family: domine, serif;
+	margin: 0 auto;
+}
+header{
+	background-color: #1a1e24;
+	font-family: abel, sans-serif;
+	width: 100%;
+}
+/*TOP NAV WITH SOCIAL MEDIA ICONS AND SEARCH BAR*/
+div.topnav {
+	padding: 10px;
+	height: 5px;
+}
+/*social media*/
+.social_media{
+	font-size: 22px;
+	width: 75%; /* so it doesnt interfere with the search bar*/
+	text-align: right; /*list goes from right to left*/
+
+}
+span.genericon{
+	display: none;
+}
+
+/*SEARCH BAR*/
+
+.search-form {
+	width: 24%;
+	position: relative;
+	float: right;
+}
+
+.search-form input{
+	background: #3a3a3a;
+	border: none;
+	height: 30px;
+	font-size: 10pt;
+	color: #1a1e24;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+
+}
+.search-form input.search-field{
+	background-color: #f1f0ec;
+	width: 75%;
+}
+.search-form input:hover, .search-form input:focus, 
+.search-form input:active{
+    outline:none;
+    background: #ffffff;
+  }
+
+/*this is for the search word inside the input box*/
+.search-form input.search-field::-webkit-input-placeholder {
+   color: #1a1e24;
+}
+ 
+.search-form input.search-field:-moz-placeholder { /* Firefox 18- */
+   color: #1a1e24;  
+}
+ 
+.search-form input.search-field::-moz-placeholder {  /* Firefox 19+ */
+   color: #1a1e24;  
+}
+ 
+.search-form input.search-field:-ms-input-placeholder {  
+   color: #1a1e24;  
+}
+/*search icon*/
+input[type="submit"] {
+    font-family: FontAwesome;
+    color: #ccc;
+    width: 15%;
+    height: 30px;
+    position: relative;
+    right: 7px;
+    border-radius:  0% 5% 5% 0%;
+}
+/*SOCIAL MEDIA ICONS- GENERICONS*/
+.social_media li.menu-item {
+	list-style-type: none;
+	display: inline;
+	position: relative;
+	bottom: 140px;
+	padding: 5px;
+	width: 0;
+}
+.social_media a{
+	text-decoration: none;
+}
+/* Social Media Icons without TEXT. */
+.screen-reader-text {
+	clip: rect(1px, 1px, 1px, 1px);
+	height: 1px;
+	overflow: hidden;
+	position: absolute !important;
+	width: 1px;
+}
+.social_media a:before{
+	font-family: "Genericons";
+	text-decoration: none;
+	color: #f1f0ec;
+	padding: 3px;
+}
+.social_media a:hover:before{
+	box-shadow: 0px 0px 10px #fff;
+	border-radius: 50%;
+}
+.social_media a[href$="/feed/"]:before {
+	content: "\f413";
+}
+.social_media a[href*="codepen.io"]:before {
+	content: "\f216";
+}
+.social_media a[href*="digg.com"]:before {
+	content: "\f221";
+}
+.social_media a[href*="dribbble.com"]:before {
+	content: "\f201";
+}
+.social_media a[href*="dropbox.com"]:before {
+	content: "\f225";
+}
+.social_media a[href*="facebook.com"]:before {
+	content: "\f203";
+}
+.social_media a[href*="flickr.com"]:before {
+	content: "\f211";
+}
+.social_media a[href*="foursquare.com"]:before {
+	content: "\f226";
+}
+.social_media a[href*="plus.google.com"]:before {
+	content: "\f206";
+}
+.social_media a[href*="github.com"]:before {
+	content: "\f200";
+}
+.social_media a[href*="instagram.com"]:before {
+	content: "\f215";
+}
+.social_media a[href*="linkedin.com"]:before {
+	content: "\f208";
+}
+.social_media a[href*="pinterest.com"]:before {
+	content: "\f210";
+}
+.social_media a[href*="getpocket.com"]:before {
+	content: "\f224";
+}
+.social_media a[href*="polldaddy.com"]:before {
+	content: "\f217";
+}
+.social_media a[href*="reddit.com"]:before {
+	content: "\f222";
+}
+.social_media a[href*="stumbleupon.com"]:before {
+	content: "\f223";
+}
+.social_media a[href*="tumblr.com"]:before {
+	content: "\f214";
+}
+.social_media a[href*="twitter.com"]:before {
+	content: "\f202";
+}
+.social_media a[href*="vimeo.com"]:before {
+	content: "\f212";
+}
+.social_media a[href*="wordpress.com"]:before,
+.social_media a[href*="wordpress.org"]:before {
+	content: "\f205";
+}
+.social_media a[href*="youtube.com"]:before {
+	content: "\f213";
+}
+.social_media a[href*="mailto:"]:before {
+	content: "\f410";
+}
+.social_media a[href*="spotify.com"]:before {
+	content: "\f515";
+}
+.social_media a[href*="twitch.tv"]:before {
+	content: "\f516";
+}
+/*TITLE STYLES*/
+h1.title{
+	font-size: 34px;
+}
+h1.title a{
+	text-decoration: none;
+	color: #f1f0ec;
+	padding-left: 25px;
+	font-weight: normal;
+}
+
+/*MAIN NAV MENU*/
+
+
+
+
+
+
+
+
+
+
+
+
