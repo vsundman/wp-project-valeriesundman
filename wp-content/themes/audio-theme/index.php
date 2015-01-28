@@ -13,8 +13,8 @@
 	<![endif]-->
 
 	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/styles/reset.css">
-		<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
-				<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/genericons/genericons.css">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_url'); ?>">
+	<link rel="stylesheet" type="text/css" href="<?php bloginfo('stylesheet_directory'); ?>/genericons/genericons.css">
 		<!-- favicon will go here -->
 
 		<!-- fonts -->
@@ -27,9 +27,9 @@
 
 	<header role="banner">
 
-		<div class="header-dark">
+
 			<?php the_post_thumbnail('large'); //background img in header?>
-		</div>
+
 
 		<div class="topnav">
 			<span class="genericon genericon-draggable"></span>
@@ -45,13 +45,13 @@
 
 			 ) ); ?>
 
-	
-		<h1 class="title">
-			<a href="<?php echo esc_url( home_url('/') ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home">
-				<?php bloginfo('name'); ?>
-			</a>
-		</h1> 
-
+		<div class="title-wrap">
+			<h1 class="title">
+				<a href="<?php echo esc_url( home_url('/') ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home">
+					<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+				</a>
+			</h1> 
+		</div>
 		<?php wp_nav_menu( array( 
 				'theme_location' => 'main_menu', /*registered in functions.php*/
 				'container'       => 'nav', 
@@ -59,18 +59,14 @@
 				'fallback_cb' 	=> 'false', /*if no menu assigned, do nothing*/
 		 ) ); ?>
 
-		
-
-
-		<h2><?php the_title(); ?></h2>
-
+		 <div class="welcome-wrap">
+			<h2><?php bloginfo('name'); ?></h2>
+			<h3><?php bloginfo('description'); ?></h4>
+		</div>
 
 
 
 	</header>
-
-
-
 
 
 	<main id="content">

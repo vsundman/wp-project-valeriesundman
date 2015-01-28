@@ -11,8 +11,17 @@ add_theme_support('automatic-feed-links' );
 add_theme_support('custom-background' );
 
 add_theme_support('post-formats', array('gallery', 'quote', 'audio', 'video', 'image') );
+//CUSTOM HEADER
+add_theme_support('custom-header', array(
+	'default-image'          => get_template_directory_uri() . '/images/default-logo.png',
+	'width'                  => 200,
+	'height'                 => 90,
+	'uploads'                => true,
+	)	 );
 
 
+
+add_image_size( 'logo-size', 220, 180 ); // 220 pixels wide by 180 pixels tall, soft proportional crop mode
 //make additional image sizes
 add_image_size( 'big-banner', '1300', '300', true );
 //adds ability to have editor-style.css for the edit content area (in the edit post panel)
