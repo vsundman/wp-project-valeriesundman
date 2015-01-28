@@ -26,10 +26,25 @@
 <body <?php body_class('custom'); ?>>
 
 	<header role="banner">
+
+		<div class="header-dark">
+			<?php the_post_thumbnail('large'); //background img in header?>
+		</div>
+
 		<div class="topnav">
 			<span class="genericon genericon-draggable"></span>
 			<?php get_search_form(); ?> 
 		</div>
+		<?php wp_nav_menu( array( 
+				'theme_location' => 'social_media', /*registered in functions.php*/
+				'container'       => 'false',
+				'menu_class'      => 'social_media',
+				'fallback_cb' 	=> 'false', /*if no menu assigned, do nothing*/
+				'link_before'    => '<span class="screen-reader-text">',
+				'link_after'     => '</span>',
+
+			 ) ); ?>
+
 	
 		<h1 class="title">
 			<a href="<?php echo esc_url( home_url('/') ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home">
@@ -45,19 +60,10 @@
 		 ) ); ?>
 
 		
-		<?php the_post_thumbnail('large' ); //background img in header?>
+
 
 		<h2><?php the_title(); ?></h2>
 
-		<?php wp_nav_menu( array( 
-				'theme_location' => 'social_media', /*registered in functions.php*/
-				'container'       => 'false',
-				'menu_class'      => 'social_media',
-				'fallback_cb' 	=> 'false', /*if no menu assigned, do nothing*/
-				'link_before'    => '<span class="screen-reader-text">',
-				'link_after'     => '</span>',
-
-			 ) ); ?>
 
 
 
