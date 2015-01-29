@@ -8,14 +8,16 @@ add_theme_support('html5', array('search-form', 'comment-list', 'comment-form',
 //adds <link> elements on all archives for RSS feeds
 add_theme_support('automatic-feed-links' );
 
-add_theme_support('custom-background' );
+add_theme_support('custom-background');
 
 add_theme_support('post-formats', array('gallery', 'quote', 'audio', 'video', 'image') );
+
+
 //CUSTOM HEADER
 add_theme_support('custom-header', array(
-	'default-image'          => get_template_directory_uri() . '/images/default-logo.png',
-	'width'                  => 200,
-	'height'                 => 90,
+	'default-image'          => get_template_directory_uri() . '/images/header_img3.jpg',
+	'width'					 => 1200,
+	'height'                 => 700,
 	'uploads'                => true,
 	)	 );
 

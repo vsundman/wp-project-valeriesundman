@@ -26,9 +26,7 @@
 <body <?php body_class('custom'); ?>>
 
 	<header role="banner">
-
-
-			<?php the_post_thumbnail('large'); //background img in header?>
+		<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" class="head-back" />
 
 
 		<div class="topnav">
@@ -48,7 +46,10 @@
 		<div class="title-wrap">
 			<h1 class="title">
 				<a href="<?php echo esc_url( home_url('/') ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home">
-					<img src="<?php header_image(); ?>" height="<?php echo get_custom_header()->height; ?>" width="<?php echo get_custom_header()->width; ?>" alt="" />
+				<!-- FIX THIS -->
+				<img src="/images/default-logo.png" width="200" height="100" />
+				<!-- FIX THIS  -->
+					
 				</a>
 			</h1> 
 		</div>
@@ -61,7 +62,7 @@
 
 		 <div class="welcome-wrap">
 			<h2><?php bloginfo('name'); ?></h2>
-			<h3><?php bloginfo('description'); ?></h4>
+			<h3><?php the_title(); ?></h4>
 		</div>
 
 
@@ -73,14 +74,14 @@
 
 		<section id="short-info" class="short">
 			<ul class="short-info-list"> 
-				<li><?php the_title(); ?></li>
+				<li>JOB DESCRIPTION</li>
 			</ul>
 		</section>
 				<?php if( have_posts() ): //the loop?>
 
 		<?php while( have_posts() ): the_post(); ?>
 			<section id="about">
-			<?php the_post_thumbnail('thumbnail' ); ?>
+
 				<p><?php the_content(); ?> </p>
 			</section>
 
