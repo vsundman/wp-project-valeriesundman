@@ -8,7 +8,9 @@ add_theme_support('html5', array('search-form', 'comment-list', 'comment-form',
 //adds <link> elements on all archives for RSS feeds
 add_theme_support('automatic-feed-links' );
 
-add_theme_support('custom-background');
+add_theme_support('custom-background', array(
+	'default-color' => '#ffffff',
+	));
 
 add_theme_support('post-formats', array('gallery', 'quote', 'audio', 'video', 'image') );
 
