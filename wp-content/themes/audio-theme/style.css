@@ -14,8 +14,12 @@ License: GPLv3
 == Main Nav Menu
 == Welcome text
 == JOB DESCRIPTION (audio production / audio engineering / film sound editor)
+== WIDGET AREA
+== STICKEY POSTS
+== CONTENT
+== PAGE NAVI
 
-
+== FOOTER
 
 */
 /*COLORS USED IN THIS THEME
@@ -261,7 +265,7 @@ h1.title a{
 	padding-left: 25px;
 	font-weight: normal;
 }
-h1 img{
+h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
 	border: 10px solid rgba(58,58,58,0.5);
 	position: relative;
 	bottom: 20px;
@@ -315,24 +319,143 @@ nav.menu-main-menu-container ul li a:hover{
 	font-size: 54px;
 }
 
-
-/*#content{
-
-	background-color: #fff; change this to be the default color in custom_background();
-}*/
-
-
-
-
-
-
-/*JOB DESCRIPTION*/
+/*JOB DESCRIPTION- custom field. to improve use meta box technique*/
 section#short-info{
 	position: relative;
 	height: 105px;
 	background-color: #f7f7f7;
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 35px;
+	width: 100%;
+}
+/*WIDGET AREA*/
+aside#sidebar{
+	float: right;
+	width: 30%;
+}
+section.widget{
+	background-color: #1a1e24;
+	padding: 25px;
+	color: #ccc;
+	font-size: 16px;
+	margin-right: 20px;
+	outline: 1px solid #252733;
+	margin-bottom: 30px;
+}
+
+
+.widget li {
+	list-style-type: none;
+	line-height: 35px;
+}
+.widget a{
+	text-decoration: none;
+	color: #ccc;
+}
+.widget a:hover,
+.widget a:focus{
+	color: #fff;
+}
+.widget-title{
+	padding-bottom: 10px;
+	font-size: 24px;
+	text-align: center;
+	font-weight: normal;
+	font-family: abel, sans-serif;
+	border-bottom: 2px solid #252733;
+	height: 40px;
+}
+.widget-title:after{
+	content: "";
+	display: block;
+	height: 67px;
+	width: 100%;
+	background-image: url('images/widget_icon.gif'); /*see if this can be custom*/
+	background-repeat: no-repeat;
+	position: relative;
+	bottom: 65px;
+	right: 40px;
+	;
+
+}
+.widget ul,
+.widget ol{
+	padding-top: 15px;
+}
+/*sticky posts*/
+.sticky{
+
+}
+
+
+
+/*CONTENT*/
+#content {
+	width: 65%;
+	float: left;
+	padding: 0 20px;
+	line-height: 34px;
+	font-size: 14px;
+	word-wrap: break-word;
+	clear: both;
+}
+#content li{
+	list-style-type: none;
+}
+#content img{
+	max-width: 100%;	/*for the extra wide images*/
+	height: auto;		/*for the extra wide images*/
+}
+#content figure{
+	max-width: 100%; /*for the extra wide images*/
+}
+section{
+	margin-bottom: 15px;
+}
+section p{
+	padding-bottom: 15px;
+}
+.sticky{
+	border: 3px solid #252733;
+	padding: 0 10px;
+	margin-bottom: 15px;
+}
+
+
+
+
+/*PAGE NAVI*/
+.pagination{
+	padding: 20px 0;
+	clear:both;
+	text-align:center;
+	width: 100%;
+}
+.pagination span {
+	border:none;
+}
+.pagination a,
+.pagination span.current {
+	padding:5px 15px;
+	color: #d8d0c9;
+	border: 1px solid #1a1e24;
+	white-space: nowrap;
+	display: inline-block;
+	-webkit-box-shadow: 1px 2px 2px 0px rgba(26,30,36,0.5);
+	-moz-box-shadow: 1px 2px 2px 0px rgba(26,30,36,0.5);
+	box-shadow: 1px 2px 2px 0px rgba(26,30,36, 0.5);
+	background: #3a3a3a; /* Old browsers */
+	font-weight: normal;
+}
+.pagination a:hover,
+.pagination span.current {
+	background: #f1f0ec;
+	filter: dropshadow(color=#fff, offx=0, offy=1);
+	color: #3a3a3a;
+}
+.pagination span.pages{
+	font-size: 14px;
+	display: block;
 }
 
 
@@ -341,7 +464,15 @@ section#short-info{
 
 
 
+/*FOOTER*/
+footer{
+	clear: both;
+}
 
 
-
+/*clearfix!*/
+.clearfix {
+  overflow: auto;
+  zoom: 1;
+}
 
