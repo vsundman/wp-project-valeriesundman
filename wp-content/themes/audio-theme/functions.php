@@ -18,12 +18,10 @@ add_theme_support('post-formats', array('gallery', 'quote', 'audio', 'video', 'i
 //CUSTOM HEADER
 add_theme_support('custom-header', array(
 	'default-image'          => get_template_directory_uri() . '/images/header_img3.jpg',
-	'width'					 => 1200,
-	'height'                 => 700,
+	'width'					 => 1300,
+	'height'                 => 450,
 	'uploads'                => true,
 	)	 );
-
-
 
 add_image_size( 'logo-size', 220, 180 ); // 220 pixels wide by 180 pixels tall, soft proportional crop mode
 //make additional image sizes

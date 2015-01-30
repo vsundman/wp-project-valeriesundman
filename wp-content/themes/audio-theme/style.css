@@ -18,41 +18,37 @@ License: GPLv3
 == STICKEY POSTS
 == CONTENT
 == PAGE NAVI
-
 == FOOTER
+
+== MEDIA QUERIES ==
+
 
 */
 /*COLORS USED IN THIS THEME
 #f1f0ec = light grey
-
 */
 
 /*GLOBAL STYLES*/
 body{
 	font-family: domine, serif;
 	margin: 0 auto;
-
 }
 
 header{
 	font-family: abel, sans-serif;
 	width: 100%;
-	min-height: 700px;
-		overflow: hidden;
-		position: relative;
-
+	overflow: hidden;
+	position: relative;
+	height: 800px;
 }
 header img.head-back{
 	background-repeat: no-repeat;
 	background-position: center;
 	background-attachment: fixed;
 	background-size: cover;
-	width: auto;
-	min-width: 100%;
+	width: 100%;
 	height: auto;
-	position: absolute;
 	z-index: -1;
-
 }
 header:after{
   content: "";
@@ -62,38 +58,26 @@ header:after{
   bottom: 0;
   right: 0;
   position: absolute;
-  max-height: 731px;
   z-index: -1;   
+  max-width: 100%;
+  height: auto;
 }
 /*TOP NAV WITH SOCIAL MEDIA ICONS AND SEARCH BAR*/
-div.topnav {
-	padding-top: 10px;
-
-}
-/*social media*/
-.social_media{
-	font-size: 22px;
-	width: 75%; /* so it doesnt interfere with the search bar*/
-	text-align: right; /*list goes from right to left*/
-
-}
-span.genericon{
-	display: none;
-}
 
 /*SEARCH BAR*/
 
 .search-form {
-	width: 24%;
+	width: 100%;
 	position: relative;
-	float: right;
+	padding: 10px;
+
 }
 
 .search-form input{
 	background: #3a3a3a;
 	border: none;
-	height: 30px;
-	font-size: 10pt;
+	height: 50px;
+	font-size: 16pt;
 	color: #1a1e24;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -130,17 +114,25 @@ span.genericon{
 input[type="submit"] {
     font-family: FontAwesome;
     color: #ccc;
-    width: 15%;
-    height: 30px;
+    width: 20%;
+    height: 50px;
     position: relative;
     right: 7px;
     border-radius:  0% 5% 5% 0%;
-        cursor: pointer;
+    cursor: pointer;
 }
-
-
-
 /*SOCIAL MEDIA ICONS- GENERICONS*/
+/*social media*/
+.social_media{
+	font-size: 15.0vw;
+	width: 100%; /* so it doesnt interfere with the search bar*/
+	text-align: center; 
+	margin-top: 15px;
+	line-height: 70px;
+}
+span.genericon{
+	display: none;
+}
 .social_media li.menu-item {
 	list-style-type: none;
 	display: inline;
@@ -163,13 +155,14 @@ input[type="submit"] {
 .social_media a:before{
 	font-family: "Genericons";
 	text-decoration: none;
-	color: #f1f0ec;
-	padding: 3px;
+	color: #1a1e24;
+	padding: 10px;
 }
 .social_media a:hover:before{
 	box-shadow: 0px 0px 10px #fff;
 	border-radius: 50%;
 }
+
 .social_media a[href$="/feed/"]:before {
 	content: "\f413";
 }
@@ -302,6 +295,7 @@ nav.menu-main-menu-container ul li a:hover{
 .welcome-wrap{
 	text-align: center;
 	clear: both;
+	max-height: 700px;
 }
 .welcome-wrap h2, .welcome-wrap h3{
 	color: #fff;
@@ -475,4 +469,309 @@ footer{
   overflow: auto;
   zoom: 1;
 }
+
+
+
+
+
+
+
+
+
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+/*************************************/
+
+
+
+/*MEDIA QUERIES*/
+
+@media only screen and (min-width: 900px) {
+	header{
+		font-family: abel, sans-serif;
+		width: 100%;
+		overflow: hidden;
+		position: relative;
+		height: 500px;
+	}
+	header:after{
+	  content: "";
+	  background-color: rgba(0,0,0,0.5);
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  position: absolute;
+	  z-index: -1;   
+	  max-width: 100%;
+	  height: auto;
+	}
+	.search-form {
+		width: 24%;
+		position: relative;
+		float: right;
+	}
+	.search-form input{
+		height: 30px;
+		font-size: 10pt;
+		background: #3a3a3a;
+		border: none;
+		color: #1a1e24;
+	  border-radius: 0 3px 3px 0;
+	}
+	input[type="submit"] {
+   	 	font-family: FontAwesome;
+    	color: #ccc;
+    	width: 15%;
+    	height: 30px;
+	}
+	.social_media{
+		font-size: 22px;
+		float: none;
+		width: 75%; /* so it doesnt interfere with the search bar*/
+		text-align: right; /*list goes from right to left*/
+
+	}
+	header img.head-back{
+		position: absolute;
+	}
+	div.topnav {
+		padding-top: 10px;
+	}
+
+	/*social media*/
+	.social_media{
+		font-size: 22px;
+		width: 100%; /* so it doesnt interfere with the search bar*/
+		text-align: center; 
+		margin-top: 15px;
+	}
+	span.genericon{
+		display: none;
+	}
+
+
+	/*TITLE STYLES*/
+	div.title-wrap{
+		background-color: rgba(13,13,13, 0.7);
+	    position: relative;
+	    z-index: 0;
+	}
+	h1.title{
+		margin-top: 10px;
+		height: 73px;
+	    position: relative;
+	    z-index: 0;
+	}
+	h1.title a{
+		text-decoration: none;
+		color: #f1f0ec;
+		padding-left: 25px;
+		font-weight: normal;
+	}
+	h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
+		border: 10px solid rgba(58,58,58,0.5);
+		position: relative;
+		bottom: 20px;
+	}
+
+	/*MAIN NAV MENU*/
+	nav.menu-main-menu-container ul {
+		display: block;
+		position: relative;
+		bottom: 45px;
+		right: 35px;
+		float: right;
+		width: 75%;
+
+	}
+	nav.menu-main-menu-container ul li{
+		display: inline;
+		font-size: 18px;
+		float: right;
+
+	}
+	nav.menu-main-menu-container ul li a{
+		text-decoration: none;
+		background-color: rgba(13,13,13, 0);
+		padding: 25px;
+		color: #ccc;
+	}
+	nav.menu-main-menu-container ul li a:hover{
+		background-color: #1a1e24;
+	}
+	/*WELCOME TEXT*/
+	.welcome-wrap{
+		text-align: center;
+		clear: both;
+		max-height: 700px;
+	}
+	.welcome-wrap h2, .welcome-wrap h3{
+		color: #fff;
+		position: relative;
+		z-index: 0;
+		font-weight: normal;
+		text-shadow: 2px 2px #000;
+	}
+	.welcome-wrap h2 {
+		font-size: 72px;
+		padding: 30px 0 20px 0;
+
+	}
+	.welcome-wrap h3 {
+		font-size: 54px;
+	}
+
+	/*JOB DESCRIPTION- custom field. to improve use meta box technique*/
+	section#short-info{
+		position: relative;
+		height: 105px;
+		background-color: #f7f7f7;
+		border-bottom: 1px solid #ccc;
+		margin-bottom: 35px;
+		width: 100%;
+	}
+	/*WIDGET AREA*/
+	aside#sidebar{
+		float: right;
+		width: 30%;
+	}
+	section.widget{
+		background-color: #1a1e24;
+		padding: 25px;
+		color: #ccc;
+		font-size: 16px;
+		margin-right: 20px;
+		outline: 1px solid #252733;
+		margin-bottom: 30px;
+	}
+
+
+	.widget li {
+		list-style-type: none;
+		line-height: 35px;
+	}
+	.widget a{
+		text-decoration: none;
+		color: #ccc;
+	}
+	.widget a:hover,
+	.widget a:focus{
+		color: #fff;
+	}
+	.widget-title{
+		padding-bottom: 10px;
+		font-size: 24px;
+		text-align: center;
+		font-weight: normal;
+		font-family: abel, sans-serif;
+		border-bottom: 2px solid #252733;
+		height: 40px;
+	}
+	.widget-title:after{
+		content: "";
+		display: block;
+		height: 67px;
+		width: 100%;
+		background-image: url('images/widget_icon.gif'); /*see if this can be custom*/
+		background-repeat: no-repeat;
+		position: relative;
+		bottom: 65px;
+		right: 40px;
+		;
+
+	}
+	.widget ul,
+	.widget ol{
+		padding-top: 15px;
+	}
+	/*sticky posts*/
+	.sticky{
+
+	}
+
+	/*CONTENT*/
+	#content {
+		width: 65%;
+		float: left;
+		padding: 0 20px;
+		line-height: 34px;
+		font-size: 14px;
+		word-wrap: break-word;
+		clear: both;
+	}
+	#content li{
+		list-style-type: none;
+	}
+	#content img{
+		max-width: 100%;	/*for the extra wide images*/
+		height: auto;		/*for the extra wide images*/
+	}
+	#content figure{
+		max-width: 100%; /*for the extra wide images*/
+	}
+	section{
+		margin-bottom: 15px;
+	}
+	section p{
+		padding-bottom: 15px;
+	}
+	.sticky{
+		border: 3px solid #252733;
+		padding: 0 10px;
+		margin-bottom: 15px;
+	}
+
+
+
+
+	/*PAGE NAVI*/
+	.pagination{
+		padding: 20px 0;
+		clear:both;
+		text-align:center;
+		width: 100%;
+	}
+	.pagination span {
+		border:none;
+	}
+	.pagination a,
+	.pagination span.current {
+		padding:5px 15px;
+		color: #d8d0c9;
+		border: 1px solid #1a1e24;
+		white-space: nowrap;
+		display: inline-block;
+		-webkit-box-shadow: 1px 2px 2px 0px rgba(26,30,36,0.5);
+		-moz-box-shadow: 1px 2px 2px 0px rgba(26,30,36,0.5);
+		box-shadow: 1px 2px 2px 0px rgba(26,30,36, 0.5);
+		background: #3a3a3a; /* Old browsers */
+		font-weight: normal;
+	}
+	.pagination a:hover,
+	.pagination span.current {
+		background: #f1f0ec;
+		filter: dropshadow(color=#fff, offx=0, offy=1);
+		color: #3a3a3a;
+	}
+	.pagination span.pages{
+		font-size: 14px;
+		display: block;
+	}
+}
+
+
+@media only screen and (min-width : 1210px) {
+	header{
+	height: 600px;
+	}
+}
+
+
+
+
+
+
 
