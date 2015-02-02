@@ -36,6 +36,7 @@ body{
 header{
 	font-family: abel, sans-serif;
 	width: 100%;
+	max-height: auto;
 	overflow: hidden;
 	position: relative;
 }
@@ -47,7 +48,6 @@ header img.head-back{
 	width: 100%;
 	height: auto;
 	z-index: -1;
-	visibility: hidden;
 
 }
 
@@ -57,11 +57,10 @@ header img.head-back{
 
 .search-form {
 	width: 100%;
+	height: auto;
 	position: relative;
 	padding: 10px;
-
 }
-
 .search-form input{
 	background: #3a3a3a;
 	border: none;
@@ -116,7 +115,10 @@ input[type="submit"] {
 	font-size: 12.0vw;
 	width: 100%; /* so it doesnt interfere with the search bar*/
 	text-align: center; 
-	line-height: 100px;
+	line-height: 70px;
+	position: relative;
+	height: auto;
+
 }
 span.genericon{
 	display: none;
@@ -147,7 +149,7 @@ span.genericon{
 	padding: 10px;
 }
 .social_media a:hover:before{
-	box-shadow: 0px 0px 10px #fff;
+	box-shadow: 0px 0px 10px #1A1E24;
 	border-radius: 50%;
 }
 
@@ -247,33 +249,39 @@ h1.title a{
 h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
 	border: 10px solid rgba(58,58,58,0.5);
 	position: relative;
-
-
 }
-
 
 /*MAIN NAV MENU*/
+nav.menu-main-menu-container{
+	position: relative;
+	height: auto;
+}
 nav.menu-main-menu-container ul {
 	display: block;
-	position: absolute;
-	bottom: 55px;
+	position: relative;
 	width: 100%;
 	text-align: center;
-
 }
 nav.menu-main-menu-container ul li{
-	display: inline;
+	display: block;
 	font-size: 28px;
+	background-color: #1A1E24;
+	padding: 15px 0;
+
 }
 nav.menu-main-menu-container ul li a{
 	text-decoration: none;
 	background-color: rgba(13,13,13, 0);
-	padding: 35px;
-	color: #F7F7F7;
+	width: 100%;
+	color: #fff;
 }
 nav.menu-main-menu-container ul li a:hover{
-	background-color: #3B3B3B;
+	cursor: pointer;
 }
+nav.menu-main-menu-container ul li:hover{
+		background-color: #3B3B3B;
+}
+
 /*WELCOME TEXT*/
 .welcome-wrap{
 	text-align: center;
@@ -281,49 +289,53 @@ nav.menu-main-menu-container ul li a:hover{
 	max-height: 700px;
 }
 .welcome-wrap h2, .welcome-wrap h3{
-	color: #fff;
-	position: relative;
 	z-index: 0;
 	font-weight: normal;
-	text-shadow: 2px 2px #000;
 }
 .welcome-wrap h2 {
-	font-size: 72px;
-	padding: 30px 0 20px 0;
+	position: absolute;
+	bottom: 650px;
+	text-align: center;
+	width: 100%;
+	font-size: 3.2em;
+	color: #fff;
+	text-shadow: 1px 1px 2px #000;
 
 }
 .welcome-wrap h3 {
-	font-size: 54px;
+	position: relative;
+	font-size: 1.5em;
+	padding: 25px 0;
 }
 
 /*JOB DESCRIPTION- custom field. to improve use meta box technique*/
 section#short-info{
 	position: relative;
-	height: 105px;
+	height: auto;
+	padding: 25px 0;
 	background-color: #f7f7f7;
 	border-bottom: 1px solid #ccc;
 	margin-bottom: 35px;
 	width: 100%;
+	text-align: center;
 }
 /*WIDGET AREA*/
 aside#sidebar{
-	float: right;
-	width: 30%;
+	float: none;
+	width: 100%;
 }
 section.widget{
 	background-color: #1a1e24;
-	padding: 25px;
+	padding: 30px;
 	color: #ccc;
-	font-size: 16px;
-	margin-right: 20px;
+	font-size: 18px;
+	margin: 0 10px;
 	outline: 1px solid #252733;
 	margin-bottom: 30px;
 }
-
-
 .widget li {
 	list-style-type: none;
-	line-height: 35px;
+	line-height: 55px;
 }
 .widget a{
 	text-decoration: none;
@@ -364,16 +376,14 @@ section.widget{
 
 }
 
-
-
 /*CONTENT*/
 #content {
-	width: 65%;
-	float: left;
-	padding: 0 20px;
+	max-width: 100%;
+	float: none;
 	line-height: 34px;
 	font-size: 14px;
 	word-wrap: break-word;
+	padding: 0 10px;
 	clear: both;
 }
 #content li{
@@ -398,9 +408,6 @@ section p{
 	margin-bottom: 15px;
 }
 
-
-
-
 /*PAGE NAVI*/
 .pagination{
 	padding: 20px 0;
@@ -413,7 +420,7 @@ section p{
 }
 .pagination a,
 .pagination span.current {
-	padding:5px 15px;
+	padding: 20px 35px;
 	color: #d8d0c9;
 	border: 1px solid #1a1e24;
 	white-space: nowrap;
@@ -435,16 +442,39 @@ section p{
 	display: block;
 }
 
-
-
-
-
-
-
 /*FOOTER*/
-footer{
+.footer{
 	clear: both;
+	border-top-style: solid;
+	border-top-width: 10px;
+	border-top-color: #3a3a3a;
 }
+
+.footer .social_media {
+		font-size: 2.0em;
+		position: relative;
+		z-index: 1;
+		width: 100%; /* so it doesnt interfere with the search bar*/
+		height: auto;
+}
+
+.footer .social_media a:before{
+		color: #000;
+}
+.footer .social_media a:hover:before{
+	box-shadow: 0px 0px 10px #000;
+	border-radius: 50%;
+}
+
+.footer nav.menu-main-menu-container ul li{
+	font-size: 16px;
+	text-align: center;
+	width: 50%;
+	float: left;
+	outline: 1px solid #252733;
+	padding: 25px 0;
+}
+
 
 
 /*clearfix!*/
@@ -460,10 +490,11 @@ footer{
 /*************************************/
 
 
-
 @media only screen and (min-width: 430px){
 	.social_media{
 		font-size: 8.0vw;
+	position: relative;
+	top: 0px;
 	}
 	/*TITLE STYLES*/
 	div.title-wrap{
@@ -485,23 +516,12 @@ h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
 	border: 10px solid rgba(58,58,58,0.5);
 	position: relative;
 	}
-header img.head-back{
-	background-repeat: no-repeat;
-	background-position: center;
-	background-attachment: fixed;
-	background-size: cover;
-	width: 100%;
-	height: auto;
-	z-index: -1;
-	visibility: visible;
-}
-
 }
 
 
 /*MEDIA QUERIES*/
 
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 600px) {
 	header{
 		font-family: abel, sans-serif;
 		width: 100%;
@@ -522,7 +542,7 @@ header img.head-back{
 	  max-height: auto;
 	}
 	.search-form {
-		width: 24%;
+		width: 35%;
 		position: relative;
 		float: right;
 	}
@@ -541,18 +561,22 @@ header img.head-back{
     	height: 30px;
 	}
 	.social_media{
-		font-size: 22px;
+		font-size: 1.1em;
 		float: none;
-		width: 75%; /* so it doesnt interfere with the search bar*/
+		width: 65%; /* so it doesnt interfere with the search bar*/
 		text-align: right; /*list goes from right to left*/
 		line-height: 0;
 		margin-top: 25px;
 		height: auto;
-		padding-bottom: 20px;
 	}
 	.social_media a:before{
 		color: #fff;
 	}
+	.social_media a:hover:before{
+	box-shadow: 0px 0px 10px #fff;
+	border-radius: 50%;
+}
+
 	header img.head-back{
 		position: absolute;
 	}
@@ -570,7 +594,9 @@ header img.head-back{
 	div.title-wrap{
 		background-color: rgba(13,13,13, 0.7);
 	    position: relative;
+	    top: 20px;
 	    z-index: 0;
+
 	}
 	h1.title{
 		margin-top: 10px;
@@ -585,6 +611,7 @@ header img.head-back{
 		font-weight: normal;
 		position: relative;
 	    bottom: 0;
+
 	}
 	h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
 		border: 10px solid rgba(58,58,58,0.5);
@@ -593,30 +620,40 @@ header img.head-back{
 	}
 
 	/*MAIN NAV MENU*/
+
 	nav.menu-main-menu-container ul {
 		display: block;
 		position: relative;
-		bottom: 45px;
-		right: 35px;
-		float: right;
-		width: 75%;
-
+		top: 50px;
+		height: 70px;
+		width: 100%;
+		color: #ccc;
+		background-color: rgba(13,13,13, 0.7);
 	}
-	nav.menu-main-menu-container ul li{
-		display: inline;
-		font-size: 18px;
-		float: right;
 
+/*START WORKING HERE, TRYING TO GET THE NAV TO FLOW ON TWO LINES*/
+
+	nav.menu-main-menu-container ul li{
+		display: inline-block;
+		font-size: 18px;
+		position: relative;
+		top: 0px;
+		padding: 0;
+		z-index: 1;
+		width: 30%;
+		margin: 0 auto;
+		background-color: transparent;
 	}
 	nav.menu-main-menu-container ul li a{
 		text-decoration: none;
 		background-color: rgba(13,13,13, 0);
 		padding: 25px;
-		color: #ccc;
+
 	}
 	nav.menu-main-menu-container ul li a:hover{
 		background-color: #1a1e24;
 	}
+
 	/*WELCOME TEXT*/
 	.welcome-wrap{
 		text-align: center;
@@ -629,14 +666,15 @@ header img.head-back{
 		z-index: 0;
 		font-weight: normal;
 		text-shadow: 2px 2px #000;
+		bottom: 0;
 	}
 	.welcome-wrap h2 {
-		font-size: 64px;
-		padding: 0px 0 10px 0;
+		font-size: 4.5em;
+		padding: 30px 0 10px 0;
 
 	}
 	.welcome-wrap h3 {
-		font-size: 45px;
+		font-size: 2.1em;
 		padding-bottom: 30px;
 	}
 
@@ -739,10 +777,6 @@ header img.head-back{
 		padding: 0 10px;
 		margin-bottom: 15px;
 	}
-
-
-
-
 	/*PAGE NAVI*/
 	.pagination{
 		padding: 20px 0;
@@ -776,6 +810,66 @@ header img.head-back{
 		font-size: 14px;
 		display: block;
 	}
+/*FOOTER*/
+.footer{
+	clear: both;
+	border-top-style: solid;
+	border-top-width: 10px;
+	border-top-color: #3a3a3a;
+}
+
+.footer .social_media {
+		font-size: 2.5em;
+		position: relative;
+		z-index: 1;
+		width: 100%; /* so it doesnt interfere with the search bar*/
+		height: auto;
+		line-height: normal;
+		margin-top: 0;
+		text-align: center;
+		margin: 20px 0;
+}
+
+.footer .social_media a:before{
+		color: #000;
+}
+.footer .social_media a:hover:before{
+	box-shadow: 0px 0px 10px #000;
+	border-radius: 50%;
+}
+.footer nav.menu-main-menu-container ul{
+	position: relative;
+	width: 100%;
+	text-align: center;
+	float: none;
+	right: 0;
+}
+
+.footer nav.menu-main-menu-container ul li{
+	font-size: 12px;
+
+	width: 16.6%;
+	outline: none;
+	float: left;
+
+}
+.footer nav.menu-main-menu-container ul li:hover{
+		background-color: transparent;
+}
+
+.footer nav.menu-main-menu-container ul li a{
+	padding: 0;
+	color: #3b3b3b;
+}
+.footer nav.menu-main-menu-container ul li a:hover{
+	border-bottom-color: #252733;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	background-color: transparent;
+}
+
+
+
 }
 
 

@@ -47,7 +47,7 @@
 			<h1 class="title">
 				<a href="<?php echo esc_url( home_url('/') ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home">
 				<!-- FIX THIS -->
-				<img src="/images/default-logo.png" width="200" height="100" />
+				<img src="images/default-logo.png" alt="logo" width="200" height="100" />
 				<!-- FIX THIS  -->
 					
 				</a>
