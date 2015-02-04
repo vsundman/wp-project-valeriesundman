@@ -504,7 +504,7 @@ section p{
 		top: 2%;
 	}
 }
-@media only screen and (min-width: 700px){
+@media only screen and (min-width: 650px){
 	header{
 		min-height: 300px;
 	}
@@ -522,6 +522,18 @@ section p{
 		height: auto;
 		z-index: -1;
 	}
+	header:after{
+	  content: "";
+	  background-color: rgba(0,0,0,0.5);
+	  top: 0;
+	  left: 0;
+	  bottom: 0;
+	  right: 0;
+	  position: absolute;
+	  z-index: -1;   
+	  width: 100%;
+	}
+
 	/*TITLE STYLES*/
 	div.title-wrap{
 		position: relative;
@@ -629,6 +641,7 @@ nav.menu-main-menu-container ul li a{
 		position: relative;
 		height: auto;
 		width: 100%;
+		background-color: #fff;
 	}
 	.welcome-wrap h2, .welcome-wrap h3{
 		position: relative;
@@ -644,8 +657,20 @@ nav.menu-main-menu-container ul li a{
 		font-size: 2.0em;
 		padding: 15px 0 15px 0;
 	}
+
+.footer .social_media {
+		position: relative;
+		width: 100%;
+		height: auto;
+		line-height: normal;
+		text-align: center;
+
 }
 
+
+
+
+}
 
 
 /*MEDIA QUERIES*/
@@ -714,12 +739,9 @@ nav.menu-main-menu-container ul li a{
 	div.topnav {
 		padding-top: 10px;
 	}
-
-
 	span.genericon{
 		display: none;
 	}
-
 
 	/*TITLE STYLES*/
 	div.title-wrap{
@@ -755,15 +777,13 @@ nav.menu-main-menu-container ul li a{
 	nav.menu-main-menu-container ul {
 		display: block;
 		position: relative;
-		bottom: 45px;
-		right: 35px;
-		top:0;
 		float: right;
+		bottom: 100px;
 		width: 75%;
+		background-color: transparent;
 	}
 	nav.menu-main-menu-container ul li{
 		display: inline;
-		float: right;
 		font-size: 18px;
 		padding: 0;
 		position: relative;
@@ -788,13 +808,16 @@ nav.menu-main-menu-container ul li a{
 		clear: both;
 		position: absolute;
 		width: 100%;
+		bottom: 5px;
+		background-color: transparent;
+
 	}
 	.welcome-wrap h2, .welcome-wrap h3{
 		color: #fff;
 		position: relative;
 		font-weight: normal;
 		text-shadow: 2px 2px #000;
-		bottom: 0;
+
 	}
 	.welcome-wrap h2 {
 		font-size: 4.0em;
@@ -948,13 +971,11 @@ nav.menu-main-menu-container ul li a{
 .footer .social_media {
 		font-size: 2.5em;
 		position: relative;
-		z-index: 1;
 		width: 100%; /* so it doesnt interfere with the search bar*/
 		height: auto;
 		line-height: normal;
-		margin-top: 0;
 		text-align: center;
-		margin: 20px 0;
+		padding: 0;
 }
 
 .footer .social_media a:before{
@@ -968,15 +989,13 @@ nav.menu-main-menu-container ul li a{
 	position: relative;
 	width: 100%;
 	text-align: center;
-	float: none;
-	right: 0;
+	bottom: 0;
 }
 
 .footer nav.menu-main-menu-container ul li{
 	font-size: 12px;
 	width: 16.6%;
 	outline: none;
-	float: left;
 
 }
 .footer nav.menu-main-menu-container ul li:hover{
@@ -992,10 +1011,102 @@ nav.menu-main-menu-container ul li a{
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	background-color: transparent;
+	}
 }
 
 
+/*SLIDER STYLES*/
+.home #content{
+	width: 100%;
+	height: auto;
+	min-height: 600px;
+	padding: 10px 0;
+	margin: 0;
+
+}
+#slider {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	border: 8px solid rgba(58,58,58,0.8);
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	max-width: 960px;
+	max-height: 350px;
+	line-height: 0;
+	font-size:0;
+	    margin-left: auto;
+    margin-right: auto;
+}
+#slider ul{
+	margin: 0;
+	padding: 0;
+}
+
+#slider li {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	display: none;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background-image: none;
+	padding: 0;
+	margin: 0;
 
 }
 
+#slider li:first-child {
+	position: relative;
+	display: block;
+	float: left;
+}
 
+#slider img {
+	display: block;
+	height: auto;
+	float: left;
+	width: 100%;
+	border: none;
+	padding: 0;
+		min-height: 350px;
+
+}
+
+#slider .next{
+	position:absolute;		
+	top:80%;
+	right:15px;
+	z-index:50;
+	text-indent:-99999em;
+	cursor:pointer;	
+	font-size:16px;
+	height:0;
+	width:20px;
+	border-top:solid 15px transparent;
+	border-bottom:solid 15px transparent;
+	border-left:solid 20px rgba(255,255,255,.5);
+}
+#slider .next:hover{
+	right:12px;
+}
+#slider .prev{
+	position:absolute;
+	height:10%;
+	top:80%;
+	left:15px;
+	z-index:50;
+	text-indent:-99999em;
+	cursor:pointer;
+	font-size:16px;	
+	height:0;
+	width:20px;
+	border-top:solid 15px transparent;
+	border-bottom:solid 15px transparent;
+	border-right:solid 20px rgba(255,255,255,.5);		
+}
+#slider .prev:hover{
+	left:12px;
+}
