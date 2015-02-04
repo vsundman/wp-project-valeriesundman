@@ -513,8 +513,6 @@ section p{
 		position: relative;
 		top: 0px;
 	}
-
-
 	header img.head-back{
 		background-repeat: no-repeat;
 		background-position: center;
@@ -552,7 +550,7 @@ section p{
 		bottom: 20px;
 	}
 	.search-form {
-		width: 24%;
+		width: 25%;
 		position: relative;
 		float: right;
 	}
@@ -599,17 +597,19 @@ section p{
 nav.menu-main-menu-container ul{
 	position: relative;
 	width: 100%;
+	background-color: #1A1E24;
 	text-align: center;
 	float: none;
 	padding: 0;
 	margin: 0;
+	color: #fff;
 }
 
  nav.menu-main-menu-container ul li{
-	font-size: 20px;
-	max-width: 23%;
+ 	display: inline-block;
+	font-size: 1.2rem;
+	width: 11rem;
 	outline: none;
-	float: left;
 	padding: 20px 10px;
 	margin: 0;
 }
@@ -619,7 +619,6 @@ nav.menu-main-menu-container ul{
 
 nav.menu-main-menu-container ul li a{
 	padding: 15px 20px;
-	color: #fff;
 }
 
 
