@@ -488,6 +488,7 @@ section p{
 	height: auto;
 	padding: 0;
 	margin: 0;
+	padding-bottom: 20px;
 }
 #home-wrap{
 		background-color: rgba(252,252,250, 0.5);
@@ -584,17 +585,44 @@ section p{
 }
 /*LATEST WORK*/
 .latest-work{
-	margin: 0;
+	margin: 0 auto;
 	padding: 20px;
+	max-width: 1000px;
 }
 .latest-work h2.title{
-	font-size: 54px;
+	font-size: 4em;
 	text-align: center;
 	font-family: 'Abel', sans-serif;
 	font-weight: normal;
 	padding-bottom: 30px;
-}
 
+}
+.latest-work ul li a{
+	text-decoration: none;
+	font-family: 'domine', serif;
+	color: #3B3B3B;
+	font-size: 16px;
+}
+.latest-work ul li h3{
+	padding-top: 6px;
+	border-bottom: 1px solid #3B3B3B;
+	background-color: rgba(59,59,59,1);
+	font-weight: normal;
+	color: #fff;
+}
+.latest-work li{
+	min-height: 535px;
+	width: 31%;
+	text-align: center;
+	float: left;
+	margin-left: 12px;
+}
+.latest-work .work-info{
+	outline: 3px solid rgba(59,59,59,1);
+}
+.latest-work iframe{
+	width: 100%;
+}
 
 
 

@@ -122,9 +122,9 @@ add_action('init', 'slide_init');
 function slide_init() {
 	$args = array(
 		'labels' => array(
-			'name' => 'Slides', 
+			'name' => 'Project Pictures Slide Show', 
 			'singular_name' => 'Slide', 
-			'add_new' => 'Add New', 'slide',
+			'add_new' => 'Add New Slide', 
 			'add_new_item' => 'Add New Slide',
 			'edit_item' => 'Edit Slide',
 			'new_item' => 'New Slide',
@@ -133,7 +133,7 @@ function slide_init() {
 			'not_found' => 'No slides found',
 			'not_found_in_trash' => 'No slides found in Trash', 
 			'parent_item_colon' => '',
-			'menu_name' => 'Slide Show'
+			'menu_name' => 'Project Pictures'
 		),
 		'public' => true,
 		'exclude_from_search' => true,
@@ -141,7 +141,8 @@ function slide_init() {
 		'rewrite' => true,
 		'has_archive' => true, 
 		'hierarchical' => false,
-		'menu_position' => 20,
+		'menu_position' => 7,
+		'menu_icon'		=> 'dashicons-format-gallery',
 		'supports' => array('title', 'editor', 'thumbnail')
 	); 
 	register_post_type('slide', $args);
@@ -157,6 +158,9 @@ function slide_help_text($contextual_help, $screen_id, $screen) {
 		$contextual_help ='<p>Things to remember when adding a slide:</p>
 		<ul>
 			<li>Attach a Featured Image to give the slide its background</li>
+			<li>Make sure the photo is at least 350 pixels tall! Or it will expand to fit and parts of the image will get cut off</li>
+			<li>The best dimensions are 960 width and 350 height</li>
+			<li>Don\'t put the picture in the text box, put it in the FEATURED IMAGE section(usually is on the right underneath Publish)</li>
 		</ul>';
 	}
 	elseif ('edit-slide' == $screen->id) {
@@ -232,17 +236,17 @@ function vs_slider_scripts(){
 	wp_enqueue_script('vs-custom', $custom_path, 'responsiveslides', '1.0', true );
 }
 
-//LATEST WORK CUSTOM FUNCTION
+//portfolio pieces CUSTOM FUNCTION
 
-add_action('init','vs_recent_posts' );
-	function vs_recent_posts(){
+add_action('init','vs_portfolio_pieces' );
+	function vs_portfolio_pieces(){
 	register_post_type('portfolio', array(
 			'public' 		=> true,
-			'menu_icon' 	=> 'dashicons-admin-media',
+			'menu_icon' 	=> 'dashicons-media-audio',
 			'has_archive'	=> true,
+			'menu_position' => 5,
 			'supports'		=> array( 'title', 'editor', 'thumbnail', 
-									  'custom-fields', 'excerpt',
-									  'revisions' ),
+									  'excerpt', 'revisions' ),
 			'labels'		 => array(
 				'name' 			=> 'Portfolio Pieces',
 				'singular_name' => 'Portfolio Piece',
@@ -255,43 +259,95 @@ add_action('init','vs_recent_posts' );
 	 	)/*end array*/ 
 	 );//end register_post_type
 
-
-	//Add the "foley" taxonomy to portfolio
-	register_taxonomy('foley', 'portfolio', array(
+	//Add the "foley" taxonomy to portfolio pieces
+	register_taxonomy('audiotype', 'portfolio', array(
 			'hierarchical' => true, //had parent/child relationships
 			'labels' => array(
-				'name' => 'Foley Audio',
-				'singular_name' => 'Foley',
-				'add_new_item' => 'Add New Foley Audio',
-				'search_items' => 'Search Foley Audio',
-				'update_item' => 'Update Foley Audio',
-				'edit_item' => 'Edit Foley Audio',
-
-				),
+				'name' => 'Audio Types',
+				'singular_name' => 'Audio TYpe',
+				'add_new_item' => 'Add New Audio Type',
+				'search_items' => 'Search Audio Type',
+				'update_item' => 'Update Audio Type',
+				'edit_item' => 'Edit Audio Type',
+			),
 		) );
+}//end function vs_portfolio_pieces
 
-	// START HERE!!!!!!!!!!!!!!!!!!!!
-	// 
-	// 
-	// 
-	// 
+//DISPLAY THE LATEST WORK function
 
-//Add the "Feature" taxonomy to products
-	register_taxonomy('feature', 'product', array(
+function vs_recent_work( $number = 3 ){
 
-			'labels' => array(
-				'name' => 'Features',
-				'singular_name' => 'Feature',
-				'add_new_item' => 'Add new feature',
-				'search_items' => 'Search Features',
-				'update_item' => 'Update Features',
+//custom query to get most recent portfolio pieces
+	$portfolio_work_query = new WP_Query( array(
+					  'post_type' 	   => 'portfolio',
+					  'posts_per_page' => $number,
+	) );
+	//custom loop
+	if ($portfolio_work_query->have_posts()):
 
-				),
+	 ?>
+	<section class="latest-work">
+			<h2 class="title"> Latest Work </h2>
+		<ul>
+		<?php while ($portfolio_work_query->have_posts()):
+			$portfolio_work_query->the_post(); ?>
+			<li>
+				<div class="work-info">
+					<a href="LINK">
+						<h3><?php the_title(); ?></h3>
+					</a>
+					<p><?php the_excerpt(); ?></p>
+					<h2><?php the_content(); ?></h2>
+				</div>
+				
+			</li>
+		<?php endwhile; ?>
+		</ul>
+	</section>
+	<?php endif; 
+	wp_reset_postdata(); //this prevents clashing with other loops 
 
-		) );
+}// end function vs_recent_work
 
 
-}//end function vs_setup_products
+
+
+//RESUME CUSTOM FUNCTION!
+add_action('init','vs_resume' );
+function vs_resume(){
+	register_post_type('resume', array(
+			'public' 		=> true,
+			'menu_icon' 	=> 'dashicons-id-alt',
+			'has_archive'	=> true,
+			'menu_position' => 6,
+			'supports'		=> array( 'title', 'editor', 'thumbnail', 
+									  'excerpt', 'revisions' ),
+			'labels'		 => array(
+				'name' 			=> 'Resume',
+				'singular_name' => 'Resume',
+				'add_new'		=> 'Add New Resume',
+				'edit_item' 	=> 'Edit Resume',
+				'view_item'		=> 'View Resume',
+				'new_item'		=> 'New Resume',
+				'search_items'	=> 'Search Resumes',
+				'not_found'		=> 'No Resumes Found',),
+	 	)/*end array*/ 
+	 );//end register_post_type
+
+	}//end function vs_resume
+
+	//START HERE!!!!!!!!!!
+	//MAKE CUSTOM FIELDS FOR THE RESUME!!!!
+	
+
+	
+
+
+
+
+
+
+
 
 /**
  * Fix 404 errors when this plugin is activated

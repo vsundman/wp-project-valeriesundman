@@ -18,14 +18,7 @@
 			
 	</section><!-- end slider/demo reel -->
 
-		<section class="latest-work">
-			<h2 class="title"> Latest Work </h2>
-			<ul>
-				<li> WORK </li>
-			</ul>
-			
-
-		</section>
+	<?php echo vs_recent_work(); ?>
 
 </div>
 
