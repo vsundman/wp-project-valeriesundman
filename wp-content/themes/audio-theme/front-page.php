@@ -2,8 +2,9 @@
 
 	<main id="content">
 
+<div id="home-wrap">
 	<!-- SLIDER OR DEMO REEL HERE -->
-	<section>
+	<section id="slide-space">
 			<?php 
 			if( function_exists('vs_slider') ):
 				vs_slider();
@@ -14,20 +15,19 @@
 			endif;
 			?>
 
-			<h2 class="entry-title"> 
-				<a href="<?php the_permalink(); ?>"> 
-						<?php the_title(); ?> 
-				</a>
-			</h2>
-
 			
-		</section><!-- end slider/demo reel -->
+	</section><!-- end slider/demo reel -->
 
+		<section class="latest-work">
+			<h2 class="title"> Latest Work </h2>
+			<ul>
+				<li> WORK </li>
+			</ul>
+			
 
+		</section>
 
-
-
-
+</div>
 
 
 </main><!-- end #content -->

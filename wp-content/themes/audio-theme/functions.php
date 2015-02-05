@@ -232,26 +232,89 @@ function vs_slider_scripts(){
 	wp_enqueue_script('vs-custom', $custom_path, 'responsiveslides', '1.0', true );
 }
 
+//LATEST WORK CUSTOM FUNCTION
 
-
-
-
-
-
+add_action('init','vs_recent_posts' );
 	function vs_recent_posts(){
-		//custom query to get most recent products
+	register_post_type('portfolio', array(
+			'public' 		=> true,
+			'menu_icon' 	=> 'dashicons-admin-media',
+			'has_archive'	=> true,
+			'supports'		=> array( 'title', 'editor', 'thumbnail', 
+									  'custom-fields', 'excerpt',
+									  'revisions' ),
+			'labels'		 => array(
+				'name' 			=> 'Portfolio Pieces',
+				'singular_name' => 'Portfolio Piece',
+				'add_new'		=> 'Add New Portfolio Piece',
+				'edit_item' 	=> 'Edit Portfolio Piece',
+				'view_item'		=> 'View Portfolio Piece',
+				'new_item'		=> 'New Portfolio Piece',
+				'search_items'	=> 'Search Portfolio Pieces',
+				'not_found'		=> 'No Portfolio Pieces Found',),
+	 	)/*end array*/ 
+	 );//end register_post_type
+
+
+	//Add the "foley" taxonomy to portfolio
+	register_taxonomy('foley', 'portfolio', array(
+			'hierarchical' => true, //had parent/child relationships
+			'labels' => array(
+				'name' => 'Foley Audio',
+				'singular_name' => 'Foley',
+				'add_new_item' => 'Add New Foley Audio',
+				'search_items' => 'Search Foley Audio',
+				'update_item' => 'Update Foley Audio',
+				'edit_item' => 'Edit Foley Audio',
+
+				),
+		) );
+
+	// START HERE!!!!!!!!!!!!!!!!!!!!
+	// 
+	// 
+	// 
+	// 
+
+//Add the "Feature" taxonomy to products
+	register_taxonomy('feature', 'product', array(
+
+			'labels' => array(
+				'name' => 'Features',
+				'singular_name' => 'Feature',
+				'add_new_item' => 'Add new feature',
+				'search_items' => 'Search Features',
+				'update_item' => 'Update Features',
+
+				),
+
+		) );
+
+
+}//end function vs_setup_products
+
+/**
+ * Fix 404 errors when this plugin is activated
+ * (when you add a plugin you need to flush
+ * 	because if you dont you will get a 404)
+ * 	@since  0.1
+ */
+
+function vs_rewrite_flush() {
+	//setup CPTs and taxonomies first (run the function)
+     vs_setup_products();
+     //then fix the .htaccess file
+     flush_rewrite_rules();
+}	//end function of vs_recent_posts
+register_activation_hook( __FILE__, 'vs_rewrite_flush' );
+
 		
 
 
 
-		wp_reset_postdata(); //this prevents clashing with other loops 
-	}//end function of vs_recent_posts
 
 
 
 
 
 
-
-
-//no close PHP

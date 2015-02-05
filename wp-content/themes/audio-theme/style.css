@@ -19,6 +19,8 @@ License: GPLv3
 == CONTENT
 == PAGE NAVI
 == FOOTER
+== SLIDER(front-page)
+== LATEST WORK(front-page)
 
 == MEDIA QUERIES ==
 
@@ -480,6 +482,123 @@ section p{
 	padding: 25px 0;
 }
 
+/*SLIDER STYLES*/
+.home #content{
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+}
+#home-wrap{
+		background-color: rgba(252,252,250, 0.5);
+}
+
+#slide-space{
+	padding: 40px 0;
+  	border-bottom: solid;
+	border-bottom-width: 1px;
+	border-bottom-color: #ccc;
+	background-color: #fff;
+}
+
+
+#slider {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	max-width: 960px;
+	max-height: 350px;
+	line-height: 0;
+	font-size:0;
+	margin-left: auto;
+    margin-right: auto;
+}
+
+#slider ul{
+	margin: 0;
+	padding: 0;
+}
+
+#slider li {
+	-webkit-backface-visibility: hidden;
+	position: absolute;
+	display: none;
+	width: 100%;
+	left: 0;
+	top: 0;
+	background-image: none;
+}
+
+#slider li:first-child {
+	position: relative;
+	display: block;
+	float: left;
+}
+
+#slider img {
+	display: block;
+	height: auto;
+	float: left;
+	width: 100%;
+	border: none;
+}
+
+#slider .next{
+	position:absolute;		
+	top: 45%;
+	right:15px;
+	z-index:50;
+	text-indent:-99999em;
+	cursor: pointer;	
+	font-size: 16px;
+	height:0;
+	width: 20px;
+	border-top:solid 15px transparent;
+	border-bottom:solid 15px transparent;
+	border-left:solid 20px rgba(255,255,255,0.7);
+}
+#slider .next:hover{
+	right:12px;
+}
+#slider .prev{
+	position:absolute;
+	height:10%;
+	top:45%;
+	left:15px;
+	z-index:50;
+	text-indent:-99999em;
+	cursor:pointer;
+	font-size:16px;	
+	height:0;
+	width:20px;
+	border-top:solid 15px transparent;
+	border-bottom:solid 15px transparent;
+	border-right:solid 20px rgba(255,255,255,.7);		
+}
+#slider .prev:hover{
+	left:12px;
+}
+/*LATEST WORK*/
+.latest-work{
+	margin: 0;
+	padding: 20px;
+}
+.latest-work h2.title{
+	font-size: 54px;
+	text-align: center;
+	font-family: 'Abel', sans-serif;
+	font-weight: normal;
+	padding-bottom: 30px;
+}
+
+
+
+
+
 
 
 /*clearfix!*/
@@ -695,7 +814,23 @@ nav.menu-main-menu-container ul li a{
 	  z-index: -1;   
 	  width: 100%;
 	}
+#slider {
+	position: relative;
+	list-style: none;
+	overflow: hidden;
+	border: 8px solid rgba(58,58,58,0.8);
+	width: 100%;
+	height: auto;
+	padding: 0;
+	margin: 0;
+	max-width: 960px;
+	max-height: 350px;
+	line-height: 0;
+	font-size:0;
+	    margin-left: auto;
+    margin-right: auto;
 
+}
 	.search-form {
 		width: 24%;
 		position: relative;
@@ -1012,101 +1147,4 @@ nav.menu-main-menu-container ul li a{
 	border-bottom-style: solid;
 	background-color: transparent;
 	}
-}
-
-
-/*SLIDER STYLES*/
-.home #content{
-	width: 100%;
-	height: auto;
-	min-height: 600px;
-	padding: 10px 0;
-	margin: 0;
-
-}
-#slider {
-	position: relative;
-	list-style: none;
-	overflow: hidden;
-	border: 8px solid rgba(58,58,58,0.8);
-	width: 100%;
-	height: auto;
-	padding: 0;
-	margin: 0;
-	max-width: 960px;
-	max-height: 350px;
-	line-height: 0;
-	font-size:0;
-	    margin-left: auto;
-    margin-right: auto;
-}
-#slider ul{
-	margin: 0;
-	padding: 0;
-}
-
-#slider li {
-	-webkit-backface-visibility: hidden;
-	position: absolute;
-	display: none;
-	width: 100%;
-	left: 0;
-	top: 0;
-	background-image: none;
-	padding: 0;
-	margin: 0;
-
-}
-
-#slider li:first-child {
-	position: relative;
-	display: block;
-	float: left;
-}
-
-#slider img {
-	display: block;
-	height: auto;
-	float: left;
-	width: 100%;
-	border: none;
-	padding: 0;
-		min-height: 350px;
-
-}
-
-#slider .next{
-	position:absolute;		
-	top:80%;
-	right:15px;
-	z-index:50;
-	text-indent:-99999em;
-	cursor:pointer;	
-	font-size:16px;
-	height:0;
-	width:20px;
-	border-top:solid 15px transparent;
-	border-bottom:solid 15px transparent;
-	border-left:solid 20px rgba(255,255,255,.5);
-}
-#slider .next:hover{
-	right:12px;
-}
-#slider .prev{
-	position:absolute;
-	height:10%;
-	top:80%;
-	left:15px;
-	z-index:50;
-	text-indent:-99999em;
-	cursor:pointer;
-	font-size:16px;	
-	height:0;
-	width:20px;
-	border-top:solid 15px transparent;
-	border-bottom:solid 15px transparent;
-	border-right:solid 20px rgba(255,255,255,.5);		
-}
-#slider .prev:hover{
-	left:12px;
 }
