@@ -158,8 +158,8 @@ function slide_help_text($contextual_help, $screen_id, $screen) {
 		$contextual_help ='<p>Things to remember when adding a slide:</p>
 		<ul>
 			<li>Attach a Featured Image to give the slide its background</li>
-			<li>Make sure the photo is at least 350 pixels tall! Or it will expand to fit and parts of the image will get cut off</li>
-			<li>The best dimensions are 960 width and 350 height</li>
+			<li>Make sure the photo is at least 300 pixels tall! Or it will expand to fit and parts of the image will get cut off</li>
+			<li>The best dimensions are 1000px width and 350px height</li>
 			<li>Don\'t put the picture in the text box, put it in the FEATURED IMAGE section(usually is on the right underneath Publish)</li>
 		</ul>';
 	}
@@ -320,8 +320,7 @@ function vs_resume(){
 			'menu_icon' 	=> 'dashicons-id-alt',
 			'has_archive'	=> true,
 			'menu_position' => 6,
-			'supports'		=> array( 'title', 'editor', 'thumbnail', 
-									  'excerpt', 'revisions' ),
+			'supports'		=> array( 'title', 'thumbnail', 'revisions'),
 			'labels'		 => array(
 				'name' 			=> 'Resume',
 				'singular_name' => 'Resume',
@@ -333,14 +332,406 @@ function vs_resume(){
 				'not_found'		=> 'No Resumes Found',),
 	 	)/*end array*/ 
 	 );//end register_post_type
+}//end function vs_resume
 
-	}//end function vs_resume
 
-	//START HERE!!!!!!!!!!
-	//MAKE CUSTOM FIELDS FOR THE RESUME!!!!
+// 1. customize ACF path
+add_filter('acf/settings/path', 'my_acf_settings_path');
+ 
+function my_acf_settings_path( $path ) {
+     // update path
+    $path = get_stylesheet_directory() . '/acf/';
+   // return
+    return $path;
+}
+ 
+// 2. customize ACF dir
+add_filter('acf/settings/dir', 'my_acf_settings_dir');
+ 
+function my_acf_settings_dir( $dir ) {
+ 
+    // update path
+    $dir = get_stylesheet_directory_uri() . '/acf/';
+    
+    // return
+    return $dir;
+}
+ 
+// 3. Hide ACF field group menu item
+add_filter('acf/settings/show_admin', '__return_false');
+
+// 4. Include ACF
+include_once( get_stylesheet_directory() . '/acf/acf.php' );
+
+
+//MY CUSTOM FIELDS THAT WILL COME WITH THE RESUME, IF I WANT TO ADD MORE FIELDS, I CAN DO SO BY COPYING ONE AND CHANGING IT TO MY LIKING. WOOHOO!
+
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_resume',
+		'title' => 'Resume',
+		'fields' => array (
+			array (
+				'key' => 'field_54d4f44a14f7a',
+				'label' => 'Objective',
+				'name' => 'objective',
+				'type' => 'text',
+				'instructions' => 'Example: 
+	
+	Human Resources Development position involving travel.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => 4,
+			),
+			array (
+				'key' => 'field_54d4f29d14f72',
+				'label' => 'Name',
+				'name' => 'name',
+				'type' => 'text',
+				'instructions' => 'Your name here',
+				'default_value' => '',
+				'placeholder' => 'John Doe',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_54d4f2c014f73',
+				'label' => 'E-mail',
+				'name' => 'e-mail',
+				'type' => 'email',
+				'instructions' => 'E-mail Address',
+				'default_value' => '',
+				'placeholder' => 'johndoe@gmail.com',
+				'prepend' => '',
+				'append' => '',
+			),
+			array (
+				'key' => 'field_54d4f2e614f74',
+				'label' => 'Phone Number',
+				'name' => 'phone_number',
+				'type' => 'number',
+				'instructions' => 'Area Code and Phone Number',
+				'default_value' => '',
+				'placeholder' => '888-888-8888',
+				'prepend' => '',
+				'append' => '',
+				'min' => '',
+				'max' => '',
+				'step' => '',
+			),
+			array (
+				'key' => 'field_54d4f30614f75',
+				'label' => 'Website',
+				'name' => 'website',
+				'type' => 'text',
+				'instructions' => 'a link to your website',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_54d4f32c14f76',
+				'label' => 'Picture',
+				'name' => 'picture',
+				'type' => 'image',
+				'save_format' => 'object',
+				'preview_size' => 'thumbnail',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_54d4f34214f77',
+				'label' => 'Education',
+				'name' => 'education',
+				'type' => 'textarea',
+				'instructions' => 'Examples:
+	
+	Master of Business Administration (Expected May 1998) 
+	Fuqua School of Business, Duke University, Durham, NC 
+	',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 10,
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54d4f3c714f78',
+				'label' => 'Experience',
+				'name' => 'experience',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => 10,
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54d4f40414f79',
+				'label' => 'Skills',
+				'name' => 'skills',
+				'type' => 'textarea',
+				'instructions' => 'Any Skills you may have',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54d4f49f14f7b',
+				'label' => 'Internship Experience',
+				'name' => 'internship_experience',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'resume',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'permalink',
+				1 => 'the_content',
+				2 => 'excerpt',
+				3 => 'custom_fields',
+				4 => 'discussion',
+				5 => 'comments',
+				6 => 'revisions',
+				7 => 'slug',
+				8 => 'author',
+				9 => 'format',
+				10 => 'featured_image',
+				11 => 'categories',
+				12 => 'tags',
+				13 => 'send-trackbacks',
+			),
+		),
+		'menu_order' => 0,
+	));
+}
+
+/**
+ * Customization API
+ */
+add_action( 'customize_register', 'vs_theme_customizer' );
+//
+function vs_theme_customizer( $wp_customize ) {
+//Link color
+	//create the setting and its defaults
+	$wp_customize->add_setting(	'vs_link_color', array( 'default'     => '#6bcbca',	));
+	//add the UI control. this is a color picker control. Attach it to the setting. 
+	$wp_customize->add_control(	new WP_Customize_Color_Control( $wp_customize, 'link_color', array(
+		'label'      => 'Link Color',
+		'section'    => 'colors', //this is one of the panels that is given to you. you can make your own, too. 
+		'settings'   => 'vs_link_color', //the setting from above that this control controls!
+		)
+	));
+//Text Color
+	$wp_customize->add_setting(	'vs_text_color', array(
+		'default'     => '#000',
+	));
+	//add the UI control. this is a color picker control. Attach it to the setting. 
+	$wp_customize->add_control(	
+		new WP_Customize_Color_Control( $wp_customize, 'text_color', array(
+		'label'      => 'Body Text Color',
+		'section'    => 'colors', //this is one of the panels that is given to you. you can make your own, too. 
+		'settings'   => 'vs_text_color', //the setting from above that this control controls!
+		)
+	));
+
+//nav Color
+	$wp_customize->add_setting(	'vs_nav_color', array(
+		'default'     => '#1A1E24',
+	));
+	//add the UI control. this is a color picker control. Attach it to the setting. 
+	$wp_customize->add_control(	
+		new WP_Customize_Color_Control( $wp_customize, 'nav_color', array(
+		'label'      => 'Navigation Background Color',
+		'section'    => 'colors', //this is one of the panels that is given to you. you can make your own, too. 
+		'settings'   => 'vs_nav_color', //the setting from above that this control controls!
+		)
+	));
+//nav hover Color
+	$wp_customize->add_setting(	'vs_nav_hover_color', array(
+		'default'     => '#1A1E24',
+	));
+	//add the UI control. this is a color picker control. Attach it to the setting. 
+	$wp_customize->add_control(	
+		new WP_Customize_Color_Control( $wp_customize, 'hover_color', array(
+		'label'      => 'Navigation Hover Color',
+		'section'    => 'colors', //this is one of the panels that is given to you. you can make your own, too. 
+		'settings'   => 'vs_nav_hover_color', //the setting from above that this control controls!
+		)
+	));
+
+}	
+function vs_customizer_css() {
+	?>
+	<style type="text/css">
+	a { color: <?php echo get_theme_mod( 'vs_link_color' ); ?>;  }
+	body{color: <?php echo get_theme_mod( 'vs_text_color' ); ?>; }
+	nav ul.nav li:hover,
+	nav ul.nav li a:hover{background-color: <?php echo get_theme_mod('vs_nav_hover_color'); ?> !important}
+	@media only screen and (max-width: 959px){
+	 nav ul.nav li, 
+	 nav ul.nav{ background-color: <?php echo get_theme_mod( 'vs_nav_color' ); ?> !important; }
+
+	}
+	@media only screen and (min-width: 960px) {
+		header div.title-wrap{ background-color: <?php echo get_theme_mod('vs_nav_color'); ?> !important}
+		}
+
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'vs_customizer_css' );
+
+
+
+
+function pluto_add_customizer_custom_controls( $wp_customize ) {
+
+    class Pluto_Customize_Alpha_Color_Control extends WP_Customize_Control {
+    
+        public $type = 'alphacolor';
+        //public $palette = '#3FADD7,#555555,#666666, #F5f5f5,#333333,#404040,#2B4267';
+        public $palette = true;
+        public $default = '#3FADD7';
+    
+        protected function render() {
+            $id = 'customize-control-' . str_replace( '[', '-', str_replace( ']', '', $this->id ) );
+            $class = 'customize-control customize-control-' . $this->type; ?>
+            <li id="<?php echo esc_attr( $id ); ?>" class="<?php echo esc_attr( $class ); ?>">
+                <?php $this->render_content(); ?>
+            </li>
+        <?php }
+    
+        public function render_content() { ?>
+            <label>
+                <span class="customize-control-title"><?php echo esc_html( $this->label ); ?></span>
+                <input type="text" data-palette="<?php echo $this->palette; ?>" data-default-color="<?php echo $this->default; ?>" value="<?php echo intval( $this->value() ); ?>" class="pluto-color-control" <?php $this->link(); ?>  />
+            </label>
+        <?php }
+    }
+
+}
+add_action( 'customize_register', 'pluto_add_customizer_custom_controls' );
+
+
+
+function pluto_register_customizer_options( $wp_customize ) {
+
+/*-----------------------------------------------------------*
+ * Defining our own section called "It's Alpha time"
+ *-----------------------------------------------------------*/
+$wp_customize->add_section(
+    'alpha_color_category',
+    array(
+        'title'     => 'Desktop Top Nav',
+        'priority'  => 202
+    )
+);
+
+/*-----------------------------------------------------------*
+ * Hook our control into the section above
+ *-----------------------------------------------------------*/
+$wp_customize->add_setting('pluto_color_control_one', array(
+    'default'	=> '#000000',
+	)
+);
+
+$wp_customize->add_control(
+    new Pluto_Customize_Alpha_Color_Control(
+        $wp_customize,
+        'pluto_color_control_one',
+        array(
+            'label'    => 'Top Nav Color and Opacity',
+            'palette' => true,
+            'section'  => 'alpha_color_category'
+        )
+    )
+);
+
+}
+
+add_action( 'customize_register', 'pluto_register_customizer_options' );
+
+function vs_customizer_topnav_css() {
+	?>
+	<style type="text/css">
+		@media only screen and (min-width: 960px) {
+		header div.title-wrap{ background-color: <?php echo get_theme_mod('pluto_color_control_one'); ?> !important}
+		}
+
+	</style>
+	<?php
+}
+add_action( 'wp_head', 'vs_customizer_topnav_css' );
+
+
+
+
+
+
+function pluto_enqueue_customizer_admin_scripts() {
+
+  wp_register_script( 'customizer-admin-js', get_template_directory_uri() . '/js/alpha.js', array( 'jquery' ), NULL, true );
+  wp_enqueue_script( 'customizer-admin-js' );
+
+  }
+
+add_action( 'admin_enqueue_scripts', 'pluto_enqueue_customizer_admin_scripts' );
 	
 
-	
+function pluto_enqueue_customizer_controls_styles() {
+
+  wp_register_style( 'pluto-customizer-controls', get_template_directory_uri() . '/style.css', NULL, NULL, 'all' );
+  wp_enqueue_style( 'pluto-customizer-controls' );
+
+  }
+
+add_action( 'customize_controls_print_styles', 'pluto_enqueue_customizer_controls_styles' );
+
+
+
+
+
+//CUSTOM ARCHIVE NAV MENUS
+//
+
+
+
+
+
+
+
+
+
+
+
 
 
 

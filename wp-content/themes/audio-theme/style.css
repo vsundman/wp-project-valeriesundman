@@ -259,34 +259,33 @@ h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
 
 
 /*MAIN NAV MENU*/
-nav.menu-main-menu-container{
-	position: relative;
+nav{
+	.navposition: relative;
 	min-height: 100px;
 	max-height: 100%;
 }
-nav.menu-main-menu-container ul {
+nav ul.nav {
 	display: block;
 	position: relative;
 	width: 100%;
 	text-align: center;
+	background-color: rgba(26,30,36,1);
 }
-nav.menu-main-menu-container ul li{
+nav ul.nav li{
 	display: block;
 	font-size: 28px;
-	background-color: #1A1E24;
 	padding: 15px 0;
-
 }
-nav.menu-main-menu-container ul li a{
+nav ul.nav li a{
 	text-decoration: none;
 	background-color: rgba(13,13,13, 0);
 	width: 100%;
 	color: #fff;
 }
-nav.menu-main-menu-container ul li a:hover{
+nav ul.nav li a:hover{
 	cursor: pointer;
 }
-nav.menu-main-menu-container ul li:hover{
+nav ul.nav li:hover{
 		background-color: #3B3B3B;
 }
 
@@ -473,13 +472,15 @@ section p{
 	border-radius: 50%;
 }
 
-.footer nav.menu-main-menu-container ul li{
+
+.footer nav ul.nav li{
 	font-size: 16px;
 	text-align: center;
 	width: 50%;
 	float: left;
 	outline: 1px solid #252733;
 	padding: 25px 0;
+	background-color: rgba(26,30,36,1);
 }
 
 /*SLIDER STYLES*/
@@ -495,11 +496,12 @@ section p{
 }
 
 #slide-space{
-	padding: 40px 0;
+	border-top: 2px solid #606060;
   	border-bottom: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: #ccc;
 	background-color: #fff;
+	padding: 10px 0;
 }
 
 
@@ -511,8 +513,6 @@ section p{
 	height: auto;
 	padding: 0;
 	margin: 0;
-	max-width: 960px;
-	max-height: 350px;
 	line-height: 0;
 	font-size:0;
 	margin-left: auto;
@@ -545,6 +545,7 @@ section p{
 	height: auto;
 	float: left;
 	width: 100%;
+	height: auto;
 	border: none;
 }
 
@@ -587,7 +588,7 @@ section p{
 .latest-work{
 	margin: 0 auto;
 	padding: 20px;
-	max-width: 1000px;
+	max-width: 1200px;
 }
 .latest-work h2.title{
 	font-size: 4em;
@@ -611,11 +612,11 @@ section p{
 	color: #fff;
 }
 .latest-work li{
-	min-height: 535px;
-	width: 31%;
+	padding-bottom: 20px;
+	width: 100%;
 	text-align: center;
 	float: left;
-	margin-left: 12px;
+
 }
 .latest-work .work-info{
 	outline: 3px solid rgba(59,59,59,1);
@@ -628,12 +629,75 @@ section p{
 
 
 
-
 /*clearfix!*/
 .clearfix {
   overflow: auto;
   zoom: 1;
 }
+
+
+.pluto-alpha-container .transparency {
+    height:24px;
+    width:100%;
+    background-color:#FFF;
+    background-image:url(images/transparency-grid.png);
+    box-shadow:0 0 5px rgba(0,0,0,0.4) inset;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    padding:0;
+}
+ 
+.pluto-alpha-container .ui-slider-handle {
+    color:#777;
+    background-color:#FFF;
+    text-shadow:0 1px 0 #FFF;
+    text-decoration:none;
+    position:absolute;
+    z-index:2;
+    box-shadow:0 1px 2px rgba(0,0,0,0.2);
+    border:1px solid #aaa;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    opacity:0.9;
+    margin-top:-2px;
+    height:20px;
+    cursor:ew-resize;
+    font-size:12px;
+    padding:3px;
+}
+ 
+.pluto-alpha-container .ui-slider {
+    position:relative;
+    text-align:center;
+    width:88%;
+}
+ 
+.wp-picker-container a.wp-picker-open ~ div.pluto-alpha-container {
+    display:block;
+}
+ 
+.pluto-alpha-container {
+    box-sizing:padding-box;
+    display:none;
+    border:1px solid #dfdfdf;
+    border-top:none;
+    background:#FFF;
+    padding:0 11px 6px;
+}
+ 
+.customize-control-alphacolor .wp-picker-container .iris-picker {
+    border-bottom:none;
+}
+
+
+
+
+
+
+
+
 
 /*************************************/
 /*************************************/
@@ -753,10 +817,9 @@ section p{
 
 	/*MAIN NAV MENU*/
 
-nav.menu-main-menu-container ul{
+nav ul.nav{
 	position: relative;
 	width: 100%;
-	background-color: #1A1E24;
 	text-align: center;
 	float: none;
 	padding: 0;
@@ -764,7 +827,7 @@ nav.menu-main-menu-container ul{
 	color: #fff;
 }
 
- nav.menu-main-menu-container ul li{
+ nav ul.nav li{
  	display: inline-block;
 	font-size: 1.2rem;
 	width: 11rem;
@@ -772,11 +835,11 @@ nav.menu-main-menu-container ul{
 	padding: 20px 10px;
 	margin: 0;
 }
- nav.menu-main-menu-container ul li:hover{
-	background-color: #3b3b3b;
+ nav ul.nav li:hover{
+	background-color: rgba(59,59,59,1);
 }
 
-nav.menu-main-menu-container ul li a{
+nav ul.nav li a{
 	padding: 15px 20px;
 }
 
@@ -804,7 +867,13 @@ nav.menu-main-menu-container ul li a{
 		font-size: 2.0em;
 		padding: 15px 0 15px 0;
 	}
-
+.latest-work li{
+	padding-bottom: 20px;
+	width: 60%;
+	text-align: center;
+	float: none;
+	margin: 0 auto;
+}
 .footer .social_media {
 		position: relative;
 		width: 100%;
@@ -846,18 +915,16 @@ nav.menu-main-menu-container ul li a{
 	position: relative;
 	list-style: none;
 	overflow: hidden;
-	border: 8px solid rgba(58,58,58,0.8);
 	width: 100%;
 	height: auto;
 	padding: 0;
 	margin: 0;
-	max-width: 960px;
-	max-height: 350px;
+	max-width: 1000px;
+	max-height: 300px;
 	line-height: 0;
 	font-size:0;
-	    margin-left: auto;
+	margin-left: auto;
     margin-right: auto;
-
 }
 	.search-form {
 		width: 24%;
@@ -937,7 +1004,7 @@ nav.menu-main-menu-container ul li a{
 
 	/*MAIN NAV MENU*/
 
-	nav.menu-main-menu-container ul {
+	nav ul.nav {
 		display: block;
 		position: relative;
 		float: right;
@@ -945,21 +1012,20 @@ nav.menu-main-menu-container ul li a{
 		width: 75%;
 		background-color: transparent;
 	}
-	nav.menu-main-menu-container ul li{
+	nav ul.nav li{
 		display: inline;
 		font-size: 18px;
 		padding: 0;
 		position: relative;
 		background-color: transparent;
 	}
-	nav.menu-main-menu-container ul li a{
+	nav ul.nav li a{
 		text-decoration: none;
 		padding: 30px;
 		color: #f7f7f7;
-		background-color: rgba(13,13,13, 0);
 	}
-	nav.menu-main-menu-container ul li a:hover{
-		background-color: #3b3b3b;
+	nav ul.nav li a:hover{
+		background-color: rgba(59,59,59,1);
 		padding: 25px 30px;
 	}
 
@@ -1123,6 +1189,20 @@ nav.menu-main-menu-container ul li a{
 		font-size: 14px;
 		display: block;
 	}
+
+.latest-work li{
+	min-height: 535px;
+	width: 31%;
+	text-align: center;
+	float: left;
+	margin-left: 12px;
+}
+
+
+
+
+
+
 /*FOOTER*/
 .footer{
 	clear: both;
@@ -1148,28 +1228,29 @@ nav.menu-main-menu-container ul li a{
 	box-shadow: 0px 0px 10px #000;
 	border-radius: 50%;
 }
-.footer nav.menu-main-menu-container ul{
+.footer nav ul.nav{
 	position: relative;
 	width: 100%;
 	text-align: center;
 	bottom: 0;
 }
 
-.footer nav.menu-main-menu-container ul li{
+.footer nav ul.nav li{
 	font-size: 12px;
 	width: 16.6%;
 	outline: none;
+	background-color: transparent;
 
 }
-.footer nav.menu-main-menu-container ul li:hover{
+.footer nav ul.nav li:hover{
 		background-color: transparent;
 }
 
-.footer nav.menu-main-menu-container ul li a{
+.footer nav ul.nav li a{
 	padding: 0;
 	color: #3b3b3b;
 }
-.footer nav.menu-main-menu-container ul li a:hover{
+.footer nav ul.nav li a:hover{
 	border-bottom-color: #252733;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;

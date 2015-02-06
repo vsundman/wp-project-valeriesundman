@@ -58,6 +58,7 @@
 				'container'       => 'nav', 
 				'menu_class'      => 'nav', 
 				'fallback_cb' 	=> 'false', /*if no menu assigned, do nothing*/
+	
 		 ) ); ?>
 
 		 <div class="welcome-wrap">
