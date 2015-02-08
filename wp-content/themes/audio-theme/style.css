@@ -596,6 +596,7 @@ section p{
 	font-family: 'Abel', sans-serif;
 	font-weight: normal;
 	padding-bottom: 30px;
+	line-height: 50px;
 
 }
 .latest-work ul li a{
@@ -690,9 +691,24 @@ section p{
 .customize-control-alphacolor .wp-picker-container .iris-picker {
     border-bottom:none;
 }
-
-
-
+main.error{
+	text-align: center;
+}
+main.error h2.sorry{
+	font-size: 36px;
+	border-top: 1px solid #000;
+	padding-top: 20px;
+	color: #E04A12;
+	line-height: 60px;
+}
+.error p.sorry2{
+	font-size: 22px;
+	padding: 40px 0;
+	border-bottom: 1px solid #000;
+}
+.error .latest-work h2.title{
+	display: none;
+}
 
 
 
@@ -1134,6 +1150,9 @@ nav ul.nav li a{
 		font-size: 14px;
 		word-wrap: break-word;
 		clear: both;
+	}
+	main#content.error{
+		width: 100%;
 	}
 	#content li{
 		list-style-type: none;

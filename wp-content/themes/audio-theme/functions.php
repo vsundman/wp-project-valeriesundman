@@ -248,7 +248,7 @@ add_action('init','vs_portfolio_pieces' );
 			'supports'		=> array( 'title', 'editor', 'thumbnail', 
 									  'excerpt', 'revisions' ),
 			'labels'		 => array(
-				'name' 			=> 'Portfolio Pieces',
+				'name' 			=> 'Portfolio',
 				'singular_name' => 'Portfolio Piece',
 				'add_new'		=> 'Add New Portfolio Piece',
 				'edit_item' 	=> 'Edit Portfolio Piece',
@@ -259,12 +259,12 @@ add_action('init','vs_portfolio_pieces' );
 	 	)/*end array*/ 
 	 );//end register_post_type
 
-	//Add the "foley" taxonomy to portfolio pieces
+	//Add the "audiotype" taxonomy to portfolio pieces
 	register_taxonomy('audiotype', 'portfolio', array(
 			'hierarchical' => true, //had parent/child relationships
 			'labels' => array(
 				'name' => 'Audio Types',
-				'singular_name' => 'Audio TYpe',
+				'singular_name' => 'Audio Type',
 				'add_new_item' => 'Add New Audio Type',
 				'search_items' => 'Search Audio Type',
 				'update_item' => 'Update Audio Type',
@@ -293,7 +293,7 @@ function vs_recent_work( $number = 3 ){
 			$portfolio_work_query->the_post(); ?>
 			<li>
 				<div class="work-info">
-					<a href="LINK">
+					<a href="<?php the_permalink(); ?>">
 						<h3><?php the_title(); ?></h3>
 					</a>
 					<p><?php the_excerpt(); ?></p>
@@ -309,10 +309,9 @@ function vs_recent_work( $number = 3 ){
 
 }// end function vs_recent_work
 
-
-
-
-//RESUME CUSTOM FUNCTION!
+//RESUME CUSTOM FUNCTION! 
+// --download the google doc embedd plugin to get it to display AND have a download available
+// NOTE: it will not show up if you are on localhost, but it will if it is a live website
 add_action('init','vs_resume' );
 function vs_resume(){
 	register_post_type('resume', array(
@@ -320,11 +319,12 @@ function vs_resume(){
 			'menu_icon' 	=> 'dashicons-id-alt',
 			'has_archive'	=> true,
 			'menu_position' => 6,
-			'supports'		=> array( 'title', 'thumbnail', 'revisions'),
+			'supports'		=> array( 'title', 'thumbnail', 'revisions', 'editor'),
 			'labels'		 => array(
 				'name' 			=> 'Resume',
 				'singular_name' => 'Resume',
 				'add_new'		=> 'Add New Resume',
+				'add_new_item'	=> 'Add New Resume',
 				'edit_item' 	=> 'Edit Resume',
 				'view_item'		=> 'View Resume',
 				'new_item'		=> 'New Resume',
@@ -332,206 +332,13 @@ function vs_resume(){
 				'not_found'		=> 'No Resumes Found',),
 	 	)/*end array*/ 
 	 );//end register_post_type
+
 }//end function vs_resume
 
 
-// 1. customize ACF path
-add_filter('acf/settings/path', 'my_acf_settings_path');
- 
-function my_acf_settings_path( $path ) {
-     // update path
-    $path = get_stylesheet_directory() . '/acf/';
-   // return
-    return $path;
-}
- 
-// 2. customize ACF dir
-add_filter('acf/settings/dir', 'my_acf_settings_dir');
- 
-function my_acf_settings_dir( $dir ) {
- 
-    // update path
-    $dir = get_stylesheet_directory_uri() . '/acf/';
-    
-    // return
-    return $dir;
-}
- 
-// 3. Hide ACF field group menu item
-add_filter('acf/settings/show_admin', '__return_false');
-
-// 4. Include ACF
-include_once( get_stylesheet_directory() . '/acf/acf.php' );
 
 
-//MY CUSTOM FIELDS THAT WILL COME WITH THE RESUME, IF I WANT TO ADD MORE FIELDS, I CAN DO SO BY COPYING ONE AND CHANGING IT TO MY LIKING. WOOHOO!
 
-if(function_exists("register_field_group"))
-{
-	register_field_group(array (
-		'id' => 'acf_resume',
-		'title' => 'Resume',
-		'fields' => array (
-			array (
-				'key' => 'field_54d4f44a14f7a',
-				'label' => 'Objective',
-				'name' => 'objective',
-				'type' => 'text',
-				'instructions' => 'Example: 
-	
-	Human Resources Development position involving travel.',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => 4,
-			),
-			array (
-				'key' => 'field_54d4f29d14f72',
-				'label' => 'Name',
-				'name' => 'name',
-				'type' => 'text',
-				'instructions' => 'Your name here',
-				'default_value' => '',
-				'placeholder' => 'John Doe',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_54d4f2c014f73',
-				'label' => 'E-mail',
-				'name' => 'e-mail',
-				'type' => 'email',
-				'instructions' => 'E-mail Address',
-				'default_value' => '',
-				'placeholder' => 'johndoe@gmail.com',
-				'prepend' => '',
-				'append' => '',
-			),
-			array (
-				'key' => 'field_54d4f2e614f74',
-				'label' => 'Phone Number',
-				'name' => 'phone_number',
-				'type' => 'number',
-				'instructions' => 'Area Code and Phone Number',
-				'default_value' => '',
-				'placeholder' => '888-888-8888',
-				'prepend' => '',
-				'append' => '',
-				'min' => '',
-				'max' => '',
-				'step' => '',
-			),
-			array (
-				'key' => 'field_54d4f30614f75',
-				'label' => 'Website',
-				'name' => 'website',
-				'type' => 'text',
-				'instructions' => 'a link to your website',
-				'default_value' => '',
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-				'formatting' => 'html',
-				'maxlength' => '',
-			),
-			array (
-				'key' => 'field_54d4f32c14f76',
-				'label' => 'Picture',
-				'name' => 'picture',
-				'type' => 'image',
-				'save_format' => 'object',
-				'preview_size' => 'thumbnail',
-				'library' => 'all',
-			),
-			array (
-				'key' => 'field_54d4f34214f77',
-				'label' => 'Education',
-				'name' => 'education',
-				'type' => 'textarea',
-				'instructions' => 'Examples:
-	
-	Master of Business Administration (Expected May 1998) 
-	Fuqua School of Business, Duke University, Durham, NC 
-	',
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => 10,
-				'formatting' => 'br',
-			),
-			array (
-				'key' => 'field_54d4f3c714f78',
-				'label' => 'Experience',
-				'name' => 'experience',
-				'type' => 'textarea',
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => 10,
-				'formatting' => 'br',
-			),
-			array (
-				'key' => 'field_54d4f40414f79',
-				'label' => 'Skills',
-				'name' => 'skills',
-				'type' => 'textarea',
-				'instructions' => 'Any Skills you may have',
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => '',
-				'formatting' => 'br',
-			),
-			array (
-				'key' => 'field_54d4f49f14f7b',
-				'label' => 'Internship Experience',
-				'name' => 'internship_experience',
-				'type' => 'textarea',
-				'default_value' => '',
-				'placeholder' => '',
-				'maxlength' => '',
-				'rows' => '',
-				'formatting' => 'br',
-			),
-		),
-		'location' => array (
-			array (
-				array (
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'resume',
-					'order_no' => 0,
-					'group_no' => 0,
-				),
-			),
-		),
-		'options' => array (
-			'position' => 'normal',
-			'layout' => 'no_box',
-			'hide_on_screen' => array (
-				0 => 'permalink',
-				1 => 'the_content',
-				2 => 'excerpt',
-				3 => 'custom_fields',
-				4 => 'discussion',
-				5 => 'comments',
-				6 => 'revisions',
-				7 => 'slug',
-				8 => 'author',
-				9 => 'format',
-				10 => 'featured_image',
-				11 => 'categories',
-				12 => 'tags',
-				13 => 'send-trackbacks',
-			),
-		),
-		'menu_order' => 0,
-	));
-}
 
 /**
  * Customization API
@@ -723,6 +530,73 @@ add_action( 'customize_controls_print_styles', 'pluto_enqueue_customizer_control
 //
 
 
+if( !function_exists('add_action') ) {
+	header('Status: 403 Forbidden');
+	header('HTTP/1.1. 403 Forbidden');
+	exit();
+}
+
+if( !class_exists('CustomPostTypeArchiveInNavMenu') ) {
+	class CustomPostTypeArchiveInNavMenu {
+		
+		function CustomPostTypeArchiveInNavMenu() {
+			load_plugin_textdomain( 'andromedamedia', false, basename( dirname( __FILE__ ) ) . '/languages' );
+			add_action( 'admin_head-nav-menus.php', array( &$this, 'cpt_navmenu_metabox' ) );
+			add_filter( 'wp_get_nav_menu_items', array( &$this,'cpt_archive_menu_filter'), 10, 3 );
+		}
+		
+		function cpt_navmenu_metabox() {
+	    	add_meta_box( 'add-cpt', __('Custom Post Type Archives', 'andromedamedia'), array( &$this, 'cpt_navmenu_metabox_content' ), 'nav-menus', 'side', 'default' );
+	  	}
+		
+		function cpt_navmenu_metabox_content() {
+	    	$post_types = get_post_types( array( 'show_in_nav_menus' => true, 'has_archive' => true ), 'object' );
+			
+			if( $post_types ) :
+				foreach ( $post_types as &$post_type ) {
+			        $post_type->classes = array();
+			        $post_type->type = $post_type->name;
+			        $post_type->object_id = $post_type->name;
+			        $post_type->title = $post_type->labels->name . ' ' . __( 'Archive', 'andromedamedia' );
+			        $post_type->object = 'cpt-archive';
+			    }
+				$walker = new Walker_Nav_Menu_Checklist( array() );
+		
+				echo '<div id="cpt-archive" class="posttypediv">';
+				echo '<div id="tabs-panel-cpt-archive" class="tabs-panel tabs-panel-active">';
+				echo '<ul id="ctp-archive-checklist" class="categorychecklist form-no-clear">';
+				echo walk_nav_menu_tree( array_map('wp_setup_nav_menu_item', $post_types), 0, (object) array( 'walker' => $walker) );
+				echo '</ul>';
+				echo '</div><!-- /.tabs-panel -->';
+				echo '</div>';
+				echo '<p class="button-controls">';
+				echo '<span class="add-to-menu">';
+				echo '<img class="waiting" src="' . esc_url( admin_url( 'images/wpspin_light.gif' ) ) . '" alt="" />';
+				echo '<input type="submit"' . disabled( $nav_menu_selected_id, 0 ) . ' class="button-secondary submit-add-to-menu" value="' . __('Add to Menu', 'andromedamedia') . '" name="add-ctp-archive-menu-item" id="submit-cpt-archive" />';
+				echo '</span>';
+				echo '</p>';
+				
+			endif;
+		}
+		
+		function cpt_archive_menu_filter( $items, $menu, $args ) {
+	    	foreach( $items as &$item ) {
+	      		if( $item->object != 'cpt-archive' ) continue;
+	      		$item->url = get_post_type_archive_link( $item->type );
+	      
+	      		if( get_query_var( 'post_type' ) == $item->type ) {
+	       			$item->classes[] = 'current-menu-item';
+	        		$item->current = true;
+	      		}
+	    	}
+	    	
+	    	return $items;
+		}
+	}
+
+	/* Instantiate the plugin */
+	$CustomPostTypeArchiveInNavMenu = new CustomPostTypeArchiveInNavMenu();
+}
 
 
 
@@ -748,9 +622,8 @@ add_action( 'customize_controls_print_styles', 'pluto_enqueue_customizer_control
  */
 
 function vs_rewrite_flush() {
-	//setup CPTs and taxonomies first (run the function)
-     vs_setup_products();
-     //then fix the .htaccess file
+
+     //fix the .htaccess file
      flush_rewrite_rules();
 }	//end function of vs_recent_posts
 register_activation_hook( __FILE__, 'vs_rewrite_flush' );

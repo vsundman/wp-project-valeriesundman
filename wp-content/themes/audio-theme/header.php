@@ -58,12 +58,13 @@
 				'container'       => 'nav', 
 				'menu_class'      => 'nav', 
 				'fallback_cb' 	=> 'false', /*if no menu assigned, do nothing*/
+
 	
 		 ) ); ?>
 
 		 <div class="welcome-wrap">
 			<h2><?php bloginfo('name'); ?></h2>
-			<h3><?php the_title(); ?></h4>
+			<h3><?php wp_title(''); ?></h4>
 		</div>
 
 
