@@ -21,6 +21,9 @@ License: GPLv3
 == FOOTER
 == SLIDER(front-page)
 == LATEST WORK(front-page)
+== ARCHIVE AND TAXONOMY PAGES (portfolio and filter)
+
+
 
 == MEDIA QUERIES ==
 
@@ -626,6 +629,100 @@ section p{
 	width: 100%;
 }
 
+/*ARCHIVE AND TAXONOMY PAGES (portfolio and filter)*/
+
+.archive main#content{
+	width: 100%;
+	padding: 0;
+	overflow: hidden;
+	text-align: center;
+}
+.archive section.filter{
+	text-align: center;
+	width: 100%;
+}
+.archive section.filter h3{
+	width: 100%;
+	background-color: #3B3B3B;
+	color: #fff;
+	font-weight: normal;
+	padding: 10px 0;
+	font-size: 18px;
+}
+.archive main section.filter a{
+	font-family: 'domine';
+	text-decoration: none;
+	color: #3B3B3B;
+	font-size: 16px;
+	padding: 15px 0 3px 0;
+}
+.archive main section.filter ul{
+	padding: 10px;
+	border-bottom: 1px solid #3B3B3B;
+}
+.archive main section.filter li{
+	display: inline;
+	padding: 10px;
+}
+.archive main section.audio-view-all{
+	margin-top: 15px;
+}
+.archive main section a{
+	font-family: 'Abel';
+	font-size: 26px;
+	color: #3B3B3B;
+	position: relative;
+    text-decoration: none;
+}
+.archive main a:after{
+	background: none repeat scroll 0 0 transparent;
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 2px;
+	left: 50%;
+	position: absolute;
+	background: #3B3B3B;
+	transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	width: 0;
+}
+.archive main a:hover:after { 
+  width: 100%; 
+  left: 0; 
+}
+
+
+
+
+
+article.portfolio{
+	width: 100%;
+	float: left;
+	padding: 10px 5px;
+	min-height: 250px;
+	text-align: center;
+	border: 1px solid #1a1e24;
+	background-color: #252733;
+	color: #fff;
+}
+.entry-title a{
+	text-decoration: none;
+	color: #fff;
+	font-weight: normal;
+	font-family: 'Abel', sans-serif;
+	font-size: 24px;
+}
+article.portfolio:hover{
+	background-color: #f2e9e1;
+	color: #000;
+}
+.portfolio:hover .entry-title a{
+	color: #000;
+}
+.portfolio:hover .entry-title a:after{
+	content: none;
+}
+
 
 
 
@@ -1216,8 +1313,52 @@ nav ul.nav li a{
 	float: left;
 	margin-left: 12px;
 }
+/*ARCHIVE AND TAXONOMY PAGES (portfolio and filter)*/
 
+article.portfolio{
+	width: 30%;
+	float: none;
+	display: inline-block;
+	padding: 15px 0;
+	min-height: 250px;
+	height: auto;
+	overflow: hidden;
+	text-align: center;
+	position: relative;
+}
 
+.portfolio div.entry-content{
+
+  position: absolute;
+  bottom: -300px;
+  transition: all 0.5s ease;
+  width: 100%;
+  min-height: 200px;
+}
+.portfolio:hover div.entry-content{
+	 background-color: rgba(255,255,255,0.75);
+ 	 bottom: 0;
+ 	 color: #252733;
+}
+article.portfolio:hover{
+	background-color: #252733;
+}
+.portfolio:hover .entry-title a{
+	color: #fff;
+}
+
+.archive main li.current-cat a:after{
+	background: none repeat scroll 0 0 transparent;
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 2px;
+	left: 0;
+	position: absolute;
+	background: #3B3B3B;
+	transition: width 0.3s ease 0s, left 0.3s ease 0s;
+	width: 100%;
+}
 
 
 
