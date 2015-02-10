@@ -51,6 +51,9 @@ function vs_readmore(){
 }
 add_filter('excerpt_more', 'vs_readmore');
 
+
+
+
 /**
  *  Activate Menu Areas
  * @since 0.1
@@ -62,6 +65,19 @@ function vs_menu_areas(){
 		) );
 }
 add_action('init', 'vs_menu_areas' ); //without this line, our custom function doesnt do anything. init stands for initialize.
+/**
+ *  Activate Footer Menu Areas
+ * @since 0.1
+ */
+function vs_footer_menu_areas(){
+	register_nav_menus( array( 
+		'footer_menu' => 'Footer Menu at the bottom of every page',
+		'social_media' => 'Social Media Bar',
+		) );
+}
+add_action('init', 'vs_footer_menu_areas' ); //without this line, our custom function doesnt do anything. init stands for initialize.
+
+
 
 /**
  * Add Widget Areas (dynamic sidebars)
@@ -290,28 +306,52 @@ function vs_recent_work( $number = 3 ){
 			<h2 class="title"> Latest Work </h2>
 		<ul>
 		<?php while ($portfolio_work_query->have_posts()):
-			$portfolio_work_query->the_post(); ?>
+			$portfolio_work_query->the_post(); 
+			?>
 			<li>
 				<div class="work-info">
 					<a href="<?php the_permalink(); ?>">
 						<h3><?php the_title(); ?></h3>
 					</a>
-
-					<p><?php the_excerpt(); ?></p>
-							<?php the_content(); ?>	
-
-		
-
+					<div class="short-excerpt">
+					<p><?php the_excerpt(); 
+						if(get_field('video_link')):
+						 	echo wp_oembed_get(get_field('video_link'));
+						 elseif(get_field('audio_upload')):
+						 	echo wp_audio_shortcode( get_field('audio_upload') );
+						 elseif('audio_link'):
+						 	echo wp_oembed_get(get_field('audio_link'));
+						endif;
+					?></p>
+				 </div>
+					
 				</div>
-				
 			</li>
+	
 		<?php endwhile; ?>
 		</ul>
+
 	</section>
 	<?php endif; 
 	wp_reset_postdata(); //this prevents clashing with other loops 
 
 }// end function vs_recent_work
+
+//limit content text on preveiw box
+function custom_content_length( $length ) {
+	return 20;
+}
+add_filter( 'excerpt_length', 'custom_content_length', 999 );
+
+
+
+
+
+
+
+
+
+
 
 //RESUME CUSTOM FUNCTION! 
 // --download the google doc embedd plugin to get it to display AND have a download available
@@ -404,8 +444,8 @@ function vs_customizer_css() {
 	<style type="text/css">
 	a { color: <?php echo get_theme_mod( 'vs_link_color' ); ?>;  }
 	body{color: <?php echo get_theme_mod( 'vs_text_color' ); ?>; }
-	nav ul.nav li:hover,
-	nav ul.nav li a:hover{background-color: <?php echo get_theme_mod('vs_nav_hover_color'); ?> !important}
+	 header nav ul li:hover,
+	 header nav ul li a:hover{background-color: <?php echo get_theme_mod('vs_nav_hover_color'); ?> !important}
 	@media only screen and (max-width: 959px){
 	 nav ul.nav li, 
 	 nav ul.nav{ background-color: <?php echo get_theme_mod( 'vs_nav_color' ); ?> !important; }

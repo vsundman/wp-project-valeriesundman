@@ -17,11 +17,12 @@
 			 ) ); ?>
 		
 		<?php wp_nav_menu( array( 
-				'theme_location' => 'main_menu', /*registered in functions.php*/
+				'theme_location' => 'footer_menu', /*registered in functions.php*/
 				'container'       => 'nav', 
 				'menu_class'      => 'nav', 
 				'fallback_cb' 	=> 'false', /*if no menu assigned, do nothing*/
 		 ) ); ?>
+
 
 
 

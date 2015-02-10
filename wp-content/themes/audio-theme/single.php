@@ -13,10 +13,23 @@
 				<?php //if showing a single post or page, display all the content... otherwise show the short content		the_excerpt(); //shows an excerpt of the content
 					if( is_singular() ){
 						the_content();
+						
+						if(get_field('video_link')):
+						 	echo wp_oembed_get(get_field('video_link'));
+						 elseif(get_field('audio_upload')):
+						 	echo wp_audio_shortcode( get_field('audio_upload') );
+						 elseif('audio_link'):
+						 	echo wp_oembed_get(get_field('audio_link'));
+						endif;
+
 					}else{
 						the_excerpt();
 					}
 				?> 
+				
+
+				
+
 			</div>
 			<div class="postmeta"> 
 				<span class="date"> Posted on: <a href="<?php the_permalink(); ?>"><?php the_date(); ?></a></span>
