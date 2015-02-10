@@ -22,7 +22,7 @@ License: GPLv3
 == SLIDER(front-page)
 == LATEST WORK(front-page)
 == ARCHIVE AND TAXONOMY PAGES (portfolio and filter)
-
+== SINGLE PAGE STYLES
 
 
 == MEDIA QUERIES ==
@@ -807,7 +807,28 @@ main.error h2.sorry{
 	display: none;
 }
 
-
+/*SINGLE PAGE STYLES*/
+/*SINGLE PAGE*/
+.single aside#sidebar{
+	margin-top: 30px;
+}
+.single article.portfolio{
+	width: 100%;
+	float: none;
+	padding: 10px 5px;
+	min-height: 250px;
+	text-align: center;
+	border: none;
+	background-color: transparent;
+	color: #000;
+}
+.single main{
+	margin-top: 15px;
+	border-top: 2px solid #3b3b3b;
+}
+.single img{
+	float: left;
+}
 
 
 
@@ -1315,7 +1336,7 @@ nav ul.nav li a{
 }
 /*ARCHIVE AND TAXONOMY PAGES (portfolio and filter)*/
 
-article.portfolio{
+.archive article.portfolio{
 	width: 30%;
 	float: none;
 	display: inline-block;
@@ -1327,7 +1348,7 @@ article.portfolio{
 	position: relative;
 }
 
-.portfolio div.entry-content{
+.archive .portfolio div.entry-content{
 
   position: absolute;
   bottom: -300px;
@@ -1335,15 +1356,15 @@ article.portfolio{
   width: 100%;
   min-height: 200px;
 }
-.portfolio:hover div.entry-content{
+.archive .portfolio:hover div.entry-content{
 	 background-color: rgba(255,255,255,0.75);
  	 bottom: 0;
  	 color: #252733;
 }
-article.portfolio:hover{
+.archive article.portfolio:hover{
 	background-color: #252733;
 }
-.portfolio:hover .entry-title a{
+.archive .portfolio:hover .entry-title a{
 	color: #fff;
 }
 

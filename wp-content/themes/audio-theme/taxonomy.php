@@ -40,9 +40,10 @@
 				</a>
 			</h2>
 
-		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
+		
 
 			<div class="entry-content">
+			<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('thumbnail'); ?></a>
 				<?php the_excerpt();?> 
 				<?php $price = get_post_meta( $post->ID, 'Price', true ); 
 						if($price):

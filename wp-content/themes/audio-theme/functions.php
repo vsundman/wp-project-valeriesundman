@@ -296,8 +296,12 @@ function vs_recent_work( $number = 3 ){
 					<a href="<?php the_permalink(); ?>">
 						<h3><?php the_title(); ?></h3>
 					</a>
+
 					<p><?php the_excerpt(); ?></p>
-					<h2><?php the_content(); ?></h2>
+							<?php the_content(); ?>	
+
+		
+
 				</div>
 				
 			</li>
