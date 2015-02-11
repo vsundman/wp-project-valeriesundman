@@ -6,13 +6,15 @@
 	<!-- SLIDER OR DEMO REEL HERE -->
 	<section id="slide-space">
 			<?php 
-			if( function_exists('vs_slider') ):
-				vs_slider();
-			elseif(function_exists('demo_reel')):
-				demo_reel();
+
+			   $demo_exists = get_posts( array('post_type' => 'video', 'posts_per_page' => -1) );
+					
+			if($demo_exists):
+				vs_demo_reel();
 			else:
-			the_post_thumbnail('big-banner'); 	
+				vs_slider();
 			endif;
+
 			?>
 
 			

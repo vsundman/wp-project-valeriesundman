@@ -185,7 +185,6 @@ function slide_help_text($contextual_help, $screen_id, $screen) {
 	return $contextual_help;
 }
 
-
 /**
  * This prevents 404 errors when viewing our custom post archives
  * always do this whenever introducing a new post type or taxonomy
@@ -252,6 +251,97 @@ function vs_slider_scripts(){
 	wp_enqueue_script('vs-custom', $custom_path, 'responsiveslides', '1.0', true );
 }
 
+
+
+/**
+ * Register a Custom Post Type (Demo Reel) 
+ * Since ver. 1.0
+ */
+//
+add_action('init', 'demo_init');
+function demo_init() {
+	$args = array(
+		'labels' => array(
+			'name' => 'Demo Reel', 
+			'singular_name' => 'Demo Reel', 
+			'add_new' => 'Add New Demo Reel', 
+			'add_new_item' => 'Add New Demo Reel',
+			'edit_item' => 'Edit Demo Reel',
+			'new_item' => 'New Demo Reel',
+			'view_item' => 'View Demo Reel',
+			'search_items' => 'Search Demo Reels',
+			'not_found' => 'No Demo Reels found',
+			'not_found_in_trash' => 'No Demo Reels found in Trash', 
+			'parent_item_colon' => '',
+			'menu_name' => 'Demo Reel'
+		),
+		'public' => true,
+		'exclude_from_search' => true,
+		'show_in_menu' => true, 
+		'rewrite' => true,
+		'has_archive' => true, 
+		'hierarchical' => false,
+		'menu_position' => 6,
+		'menu_icon'		=> 'dashicons-format-video',
+		'supports' => array('title', 'editor', 'thumbnail')
+	); 
+	register_post_type('video', $args);
+}
+function vs_demo_rewrite_flush(){
+	demo_init();
+	flush_rewrite_rules();
+}
+
+register_activation_hook(__FILE__, 'vs_demo_rewrite_flush');
+add_action('init', 'demo_init' );
+	function vs_demo_reel(){
+
+	$demo_query = new WP_Query( array(
+		'post_type' => 'video', //this is the post type we registered above
+		'posts_per_page' => 1,
+		'nopaging' => true, //prevents clashing with paginated archives
+	 ));
+	//CUSTOM LOOP
+	if( $demo_query->have_posts() ): 
+?> 
+	<section id="demo">
+		<?php while( $demo_query->have_posts() ):
+			$demo_query->the_post(); ?>
+			
+			<?php if(get_field('demo_reel_link')):?>
+					<h2><?php the_title(); ?></h2>
+					<?php echo wp_oembed_get(get_field('demo_reel_link'));
+					endif;	?>
+			<?php endwhile; ?>
+	
+	</section>
+
+<?php else:
+		return false;
+	endif;
+	wp_reset_postdata();//so it doesnt clash with other loops
+
+	}//end vs_demo_reel
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //portfolio pieces CUSTOM FUNCTION
 
 add_action('init','vs_portfolio_pieces' );
@@ -316,11 +406,17 @@ function vs_recent_work( $number = 3 ){
 					<div class="short-excerpt">
 					<p><?php the_excerpt(); 
 						if(get_field('video_link')):
-						 	echo wp_oembed_get(get_field('video_link'));
+						 	echo wp_oembed_get(get_field('video_link'), array(
+						 				'height' => 300,
+						 				'width' => 310,
+						 		));
 						 elseif(get_field('audio_upload')):
 						 	echo wp_audio_shortcode( get_field('audio_upload') );
 						 elseif('audio_link'):
-						 	echo wp_oembed_get(get_field('audio_link'));
+						 	echo wp_oembed_get(get_field('audio_link'), array(
+						 				'height' => 100,
+						 				'width' => 310,
+						 		));
 						endif;
 					?></p>
 				 </div>

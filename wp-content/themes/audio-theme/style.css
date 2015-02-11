@@ -6,7 +6,7 @@ License: GPLv3
 */
 
 /*TABLE OF CONTENTS
-== GLOBAL STYLES
+== GLOBAL STYLES 
 == TOP NAV WITH SOCIAL MEDIA ICONS AND SEARCH BAR
 == SOCIAL MEDIA ICONS - GENERICONS
 == LOGO IMAGE
@@ -19,10 +19,12 @@ License: GPLv3
 == CONTENT
 == PAGE NAVI
 == FOOTER
+== DEMO REEL STYLES(front-page)
 == SLIDER(front-page)
 == LATEST WORK(front-page)
 == ARCHIVE AND TAXONOMY PAGES (portfolio and filter)
 == SINGLE PAGE STYLES
+== SEARCH PAGE
 
 
 == MEDIA QUERIES ==
@@ -486,6 +488,17 @@ section p{
 	padding: 25px 0;
 	background-color: rgba(26,30,36,1);
 }
+/*DEMO REEL STYLES*/
+.home section#demo{
+	text-align: center;
+}
+.home section#demo h2{
+	text-align: center;
+	font-size: 24px;
+	font-weight: normal;
+	padding-bottom: 20px;
+}
+
 
 /*SLIDER STYLES*/
 .home #content{
@@ -814,8 +827,52 @@ main.error h2.sorry{
 	display: none;
 }
 
+/*SEARCH PAGE*/
+.search #sidebar{
+	margin-top: 35px;
+}
+.search main#content{
+	margin-top: 15px;
+}
+.search h1.page-title{
+	font-weight: normal;
+	font-size: 24px;
+	font-family: 'Abel';
+	padding-bottom: 20px;
+	text-align: center;
+}
+.search article{
+	color: #000;
+	padding-bottom: 5px;
+	border-bottom: 1px solid #323232;
+	width: 100%;
+}
+.search article h2, .search article div{
+	display: inline;
+	width: 100%;
+
+}
+.search article a{
+	text-decoration: none;
+	color: #000;
+}
+.search .date{
+	font-style: italic;
+	font-size: 12px;
+}
+.search .search-entry-title{
+	font-size: 16px;
+}
+.search .search-entry-title a:hover{
+	font-size: 16px;
+	color: #606060;
+}
+.search article img{
+
+}
+
+
 /*SINGLE PAGE STYLES*/
-/*SINGLE PAGE*/
 .single aside#sidebar{
 	margin-top: 30px;
 }
@@ -1348,6 +1405,7 @@ nav ul.nav li a{
 .work-info .short-excerpt iframe{
 	width: 100%;
 	max-height: 200px;
+	margin: 0 auto;
 }
 
 
