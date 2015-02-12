@@ -534,6 +534,23 @@ function vs_theme_customizer( $wp_customize ) {
 		)
 	));
 
+	//add the personal logo upload
+	$wp_customize->add_section('logo_upload', array(
+			'title' 		=> 'Personal Logo',
+			'priority' 		=> 30,
+			'description'	=> 'Upload a logo to replace the default picture', 
+		));
+	$wp_customize->add_setting('vs_logo_upload', array(
+			
+		));
+	$wp_customize->add_control( new WP_Customize_Image_Control( $wp_customize, 'vs_logo', array(
+    	'label'    => __( 'Logo', 'your_logo' ),
+    	'section'  => 'logo_upload',
+    	'settings' => 'vs_logo_upload',
+		)  ));
+
+
+
 }	
 function vs_customizer_css() {
 	?>

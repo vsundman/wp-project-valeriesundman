@@ -58,6 +58,128 @@ header img.head-back{
 	padding-bottom: 15px;
 
 }
+h1, h2, h3, h4, h5, h6{
+	font-weight: normal;
+}
+h1{
+	font-size: 34px;
+}
+h2{
+	font-size: 30px;
+}
+h3{
+	font-size: 26px;
+}
+h4{
+	font-size: 22px;
+}
+h5{
+	font-size: 18px
+}
+h6{
+	font-size: 16px;
+}
+q{
+	font-style: italic;
+	color: #A0A0A0;
+}
+sub{
+	position: relative; 
+	bottom: -2px; 
+	left: 0; 
+	font-size: 80%;	
+}
+sup{
+	position: relative; 
+	bottom: 5px; 
+	left: 0; 
+	font-size: 80%;	
+}
+a{
+	text-decoration: none;
+	color: #2058B5;
+}
+a:hover{
+	color: #3b3b3b;
+	text-decoration: underline;
+}
+table{
+	line-height: 50px;
+	outline: 1px solid #C4C4C4;
+	width: 100%;
+	margin: 15px 0;
+}
+table tbody{
+	padding: 25px 10px;
+}
+table a{
+	color: #252733;
+}
+table a:hover{
+	color: #3b3b3b;
+	text-decoration: underline;
+}
+table tr{
+	text-align: center;
+	border-bottom: 1px solid #C4C4C4;
+}
+table th{
+	border-right: 1px solid #C4C4C4;
+}
+table td{
+	border-right: 1px solid #C4C4C4;
+	padding: 8px;
+}
+table td:last-child{
+	text-align: left;
+	padding-left: 10px;
+}
+table tr th{
+	font-size: 18px;
+	font-weight: normal;
+}
+
+table tr.odd{
+	background-color: #EFEFEF
+}
+dl{
+	padding: 10px 0;
+}
+dt {
+	font-weight: bold;
+}
+dd {
+	background:none no-repeat left top;
+	padding-left: 40px;
+}
+ul li ul{
+	width: 100%;
+	margin-left: 20px;
+}
+ul li ul li ul{
+	margin-left: 35px;
+}
+ol{
+	padding-left: 15px;
+}
+#content ol li{
+	list-style-type: decimal;
+ }
+#content ol li ol li{
+	list-style-type: lower-latin;
+	margin-left: 15px;
+}
+#content ol li ol li ol li{
+	list-style-type: lower-roman;
+	margin-left: 25px;
+}
+
+
+
+
+
+
+
 
 
 /*TOP NAV WITH SOCIAL MEDIA ICONS AND SEARCH BAR*/
@@ -848,7 +970,6 @@ main.error h2.sorry{
 	width: 100%;
 }
 .search article h2, .search article div{
-	display: inline;
 	width: 100%;
 
 }
@@ -867,10 +988,6 @@ main.error h2.sorry{
 	font-size: 16px;
 	color: #606060;
 }
-.search article img{
-
-}
-
 
 /*SINGLE PAGE STYLES*/
 .single aside#sidebar{
@@ -886,15 +1003,55 @@ main.error h2.sorry{
 	background-color: transparent;
 	color: #000;
 }
-.single main{
-	margin-top: 15px;
-	border-top: 2px solid #3b3b3b;
+.single article.portfolio p{
+	text-align: left;
+	padding-bottom: 20px;
 }
-.single img{
+.single article.portfolio p:first-letter{
+	font-size: 44px;
 	float: left;
 }
+.single main{
+	margin-top: 15px;
 
+}
+.single article img{
+	float: left;
+	margin: 14px;
+	box-shadow: 1px 3px 5px #1A1E24;
+}
 
+blockquote{
+	background-color: #3b3b3b;
+	padding: 5px 10px;
+	color: #fff;
+	width: 60%;
+	margin: 10px auto;
+	position: relative;
+	line-height: 25px;
+	font-style: italic;
+	border-bottom: 3px solid #565552;
+}
+
+blockquote:before {
+    display: block;
+    content: "\201C";
+    font-size: 90px;
+    font-style: normal;
+    position: absolute;
+    left: -25px;
+    top: 15px;
+    color: #7a7a7a;
+}
+blockquote cite {
+    color: #999999;
+    font-size: 14px;
+    display: block;
+    margin-top: 5px;
+}
+blockquote cite:before {
+    content: "\2014 \2009";
+}
 
 
 /*************************************/
@@ -1195,10 +1352,10 @@ nav ul.nav li a{
 	    bottom: 0;
 
 	}
-	h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
+	h1 img{ /*FIX THIS!!!!!!!!!!!!!!!!!!!!*/
 		border: 10px solid rgba(58,58,58,0.5);
 		position: relative;
-		bottom: 20px;
+		bottom: 60px;
 	}
 
 	/*MAIN NAV MENU*/
