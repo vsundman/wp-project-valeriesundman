@@ -45,11 +45,7 @@
 
 		<div class="title-wrap">
 			<h1 class="title">
-				<a href="<?php echo esc_url( home_url('/') ); ?>" title="<?php bloginfo( 'name' ) ?>" rel="home">
-
-
-
-
+	
 		<?php if ( get_theme_mod( 'vs_logo_upload' ) ) : ?>
     <div class='site-logo'>
        <a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src='<?php echo esc_url( get_theme_mod( 'vs_logo_upload' ) ); ?>' alt='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>'></a>
@@ -59,7 +55,7 @@
 		<a href='<?php echo esc_url( home_url( '/' ) ); ?>' title='<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>' rel='home'><img src="images/default-logo.png" width="200" height="100" /></a>
 	<?php 
 endif; ?>
-				</a>
+			
 			</h1> 
 		</div>
 		<?php wp_nav_menu( array( 

@@ -509,7 +509,7 @@ function vs_theme_customizer( $wp_customize ) {
 		)
 	));
 
-//nav Color
+//nav background Color
 	$wp_customize->add_setting(	'vs_nav_color', array(
 		'default'     => '#1A1E24',
 	));
@@ -521,6 +521,34 @@ function vs_theme_customizer( $wp_customize ) {
 		'settings'   => 'vs_nav_color', //the setting from above that this control controls!
 		)
 	));
+//nav text color
+	$wp_customize->add_setting(	'vs_nav_text_color', array(
+		'default'     => '#fff',
+	));
+	//add the UI control. this is a color picker control. Attach it to the setting. 
+	$wp_customize->add_control(	
+		new WP_Customize_Color_Control( $wp_customize, 'nav_color', array(
+		'label'      => 'Navigation Text Color',
+		'section'    => 'colors', //this is one of the panels that is given to you. you can make your own, too. 
+		'settings'   => 'vs_nav_text_color', //the setting from above that this control controls!
+		)
+	));
+
+//nav text color
+	$wp_customize->add_setting(	'vs_job_description', array(
+			'default' => 'JOB DESCRIPTION',
+
+	));
+	//add the UI control. this is a color picker control. Attach it to the setting. 
+	$wp_customize->add_control(	
+		new WP_Customize_Control( $wp_customize, 'job_desc', array(
+		'label'      => 'Job Description',
+		'section'    => 'title_tagline', //this is one of the panels that is given to you. you can make your own, too. 
+		'settings'   => 'vs_job_description', //the setting from above that this control controls!
+		)
+	));
+
+
 //nav hover Color
 	$wp_customize->add_setting(	'vs_nav_hover_color', array(
 		'default'     => '#1A1E24',
@@ -559,6 +587,7 @@ function vs_customizer_css() {
 	body{color: <?php echo get_theme_mod( 'vs_text_color' ); ?>; }
 	 header nav ul li:hover,
 	 header nav ul li a:hover{background-color: <?php echo get_theme_mod('vs_nav_hover_color'); ?> !important}
+	 nav ul.nav li a{color:<?php echo get_theme_mod('vs_nav_text_color'); ?> !important }
 	@media only screen and (max-width: 959px){
 	 nav ul.nav li, 
 	 nav ul.nav{ background-color: <?php echo get_theme_mod( 'vs_nav_color' ); ?> !important; }
@@ -614,8 +643,8 @@ function pluto_register_customizer_options( $wp_customize ) {
 $wp_customize->add_section(
     'alpha_color_category',
     array(
-        'title'     => 'Desktop Top Nav',
-        'priority'  => 202
+        'title'     => 'Desktop Top Nav Opacity',
+        'priority'  => 30
     )
 );
 
@@ -757,7 +786,277 @@ if( !class_exists('CustomPostTypeArchiveInNavMenu') ) {
 
 
 
+// ADVANCED CUSTOM FIELDS!!!!!!!!!!!!
+// 
+ define( 'ACF_LITE', true );
+ include_once('advanced-custom-fields/acf.php');
 
+if(function_exists("register_field_group"))
+{
+	register_field_group(array (
+		'id' => 'acf_demo-reel-2',
+		'title' => 'Demo Reel',
+		'fields' => array (
+			array (
+				'key' => 'field_54db9d745b44a',
+				'label' => 'Demo Reel Link',
+				'name' => 'demo_reel_link',
+				'type' => 'text',
+				'instructions' => 'Link to your demo reel here. Do not embed!
+	
+	Example:
+	http://youtu.be/feDWHBdwgpA',
+				'required' => 1,
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'video',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'permalink',
+				1 => 'the_content',
+				2 => 'excerpt',
+				3 => 'custom_fields',
+				4 => 'discussion',
+				5 => 'comments',
+				6 => 'revisions',
+				7 => 'slug',
+				8 => 'author',
+				9 => 'format',
+				10 => 'featured_image',
+				11 => 'categories',
+				12 => 'tags',
+				13 => 'send-trackbacks',
+			),
+		),
+		'menu_order' => 0,
+	));
+	register_field_group(array (
+		'id' => 'acf_portfolio-options',
+		'title' => 'Portfolio Options',
+		'fields' => array (
+			array (
+				'key' => 'field_54da405b814fa',
+				'label' => 'Audio Upload',
+				'name' => 'audio_upload',
+				'type' => 'file',
+				'save_format' => 'object',
+				'library' => 'all',
+			),
+			array (
+				'key' => 'field_54da407d814fb',
+				'label' => 'Video Link',
+				'name' => 'video_link',
+				'type' => 'text',
+				'instructions' => 'paste a link from youtube, vine, etc.',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_54da49fbd0388',
+				'label' => 'Audio Link',
+				'name' => 'audio_link',
+				'type' => 'text',
+				'instructions' => 'paste a link to soundcloud, mixcloud, spotify, etc. Do not put iframes and embeds!!! 
+	
+	correct way: https://www.mixcloud.com/KEXPLivePerformancesPodcast/tomo-nakayama/
+	',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'none',
+				'maxlength' => '',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'portfolio',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+			),
+		),
+		'menu_order' => 0,
+	));
+
+register_field_group(array (
+		'id' => 'acf_resume-template',
+		'title' => 'Resume Template',
+		'fields' => array (
+			array (
+				'key' => 'field_54de3372f2ed3',
+				'label' => 'Name',
+				'name' => 'name',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_54de3377f2ed4',
+				'label' => 'Address',
+				'name' => 'address',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54de3381f2ed5',
+				'label' => 'Number',
+				'name' => 'number',
+				'type' => 'text',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+				'formatting' => 'html',
+				'maxlength' => '',
+			),
+			array (
+				'key' => 'field_54de338bf2ed6',
+				'label' => 'E-Mail',
+				'name' => 'e-mail',
+				'type' => 'email',
+				'default_value' => '',
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+			array (
+				'key' => 'field_54de3396f2ed7',
+				'label' => 'Objective',
+				'name' => 'objective',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54de33a4f2ed8',
+				'label' => 'Skills',
+				'name' => 'skills',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54de33adf2ed9',
+				'label' => 'Work Experience',
+				'name' => 'work_experience',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54de33b8f2eda',
+				'label' => 'Education',
+				'name' => 'education',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54de33fa9162f',
+				'label' => 'References',
+				'name' => 'references',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+			array (
+				'key' => 'field_54de33c2f2edb',
+				'label' => 'Additional Information',
+				'name' => 'additional_information',
+				'type' => 'textarea',
+				'default_value' => '',
+				'placeholder' => '',
+				'maxlength' => '',
+				'rows' => '',
+				'formatting' => 'br',
+			),
+		),
+		'location' => array (
+			array (
+				array (
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'resume',
+					'order_no' => 0,
+					'group_no' => 0,
+				),
+			),
+		),
+		'options' => array (
+			'position' => 'normal',
+			'layout' => 'no_box',
+			'hide_on_screen' => array (
+				0 => 'permalink',
+				1 => 'excerpt',
+				2 => 'custom_fields',
+				3 => 'discussion',
+				4 => 'comments',
+				5 => 'revisions',
+				6 => 'slug',
+				7 => 'author',
+				8 => 'format',
+				9 => 'categories',
+				10 => 'send-trackbacks',
+			),
+		),
+		'menu_order' => 0,
+	));
+}
 
 
 

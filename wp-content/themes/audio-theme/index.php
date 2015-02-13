@@ -3,7 +3,7 @@
 <!-- drop description area -->
 		<section id="short-info" class="short">
 			<ul class="short-info-list"> 
-				<li>JOB DESCRIPTION</li>
+				<li><?php echo get_theme_mod('vs_job_description'); ?></li>
 			</ul>
 		</section>
 <!-- end job desc area -->

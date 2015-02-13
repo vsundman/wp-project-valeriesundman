@@ -25,6 +25,8 @@ License: GPLv3
 == ARCHIVE AND TAXONOMY PAGES (portfolio and filter)
 == SINGLE PAGE STYLES
 == SEARCH PAGE
+== CONTACT PAGE
+== SHORT INFO (JOB DESCRIPTION)
 
 
 == MEDIA QUERIES ==
@@ -36,6 +38,13 @@ License: GPLv3
 */
 
 /*GLOBAL STYLES*/
+html 
+ {
+ height: 100%;
+ margin-bottom: 1px;
+ overflow-y: scroll;
+ overflow-x: hidden;
+ }
 body{
 	font-family: domine, serif;
 	margin: 0 auto;
@@ -58,6 +67,7 @@ header img.head-back{
 	padding-bottom: 15px;
 
 }
+
 h1, h2, h3, h4, h5, h6{
 	font-weight: normal;
 }
@@ -173,11 +183,6 @@ ol{
 	list-style-type: lower-roman;
 	margin-left: 25px;
 }
-
-
-
-
-
 
 
 
@@ -380,6 +385,12 @@ h1.title a{
 h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
 	border: 10px solid rgba(58,58,58,0.5);
 	position: relative;
+	width: 200px;
+	height: 100px;
+	object-fit: cover;
+}
+div.site-logo{
+
 }
 
 /*FIX THE NAV BAR HEIGHT!!!!!*/
@@ -563,6 +574,8 @@ section p{
 	box-shadow: 1px 2px 2px 0px rgba(26,30,36, 0.5);
 	background: #3a3a3a; /* Old browsers */
 	font-weight: normal;
+
+
 }
 .pagination a:hover,
 .pagination span.current {
@@ -609,6 +622,7 @@ section p{
 	outline: 1px solid #252733;
 	padding: 25px 0;
 	background-color: rgba(26,30,36,1);
+	max-height: 17px;
 }
 /*DEMO REEL STYLES*/
 .home section#demo{
@@ -635,7 +649,7 @@ section p{
 }
 
 #slide-space{
-	border-top: 2px solid #606060;
+
   	border-bottom: solid;
 	border-bottom-width: 1px;
 	border-bottom-color: #ccc;
@@ -742,7 +756,8 @@ section p{
 	text-decoration: none;
 	font-family: 'domine', serif;
 	color: #3B3B3B;
-	font-size: 16px;
+	font-size: 12px;
+	font-weight: normal;
 }
 .latest-work ul li h3{
 	padding-top: 6px;
@@ -750,6 +765,7 @@ section p{
 	background-color: #1a1e24;
 	font-weight: normal;
 	color: #fff;
+	font-size: 16px;
 }
 .latest-work li{
 	padding-bottom: 20px;
@@ -769,6 +785,7 @@ section p{
 }
 .latest-work iframe{
 	width: 100%;
+
 }
 
 /*ARCHIVE AND TAXONOMY PAGES (portfolio and filter)*/
@@ -1053,6 +1070,81 @@ blockquote cite:before {
     content: "\2014 \2009";
 }
 
+/* CONTACT PAGE*/
+
+.page #ninja_forms_form_1{
+	background-color: #323232;
+	padding: 20px;
+	border-radius: 8px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+
+	
+}
+.page .ninja-forms-all-fields-wrap{
+	font-size: 18px;
+	color: #fff;
+	padding: 25px;
+}
+.page .ninja-forms-required-items{
+	font-weight: normal;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 18px;
+	letter-spacing: 1px;
+}
+.ninja-forms-form-wrap div label{
+	font-weight: normal;
+	font-size: 18px;
+}
+span.ninja-forms-req-symbol{
+	color: #FF4A4A;
+}
+.ninja-forms-field{
+	font-size: 26px;
+	line-height: 50px;
+		font-family: 'domine';
+}
+div#ninja_forms_field_4_div_wrap{
+	outline: 1px solid #ccc;
+	text-align: center;	
+	padding: 5px;
+}
+input#ninja_forms_field_4{
+	max-width: 75%;
+	display: block;
+	margin: 0 auto;
+}
+div#nf_submit_1{
+	width: 100%;
+}
+
+div input.submit{
+	color: #323232;
+	padding: 5px;
+	width: inherit;
+	font-family: 'domine';
+	right: 0;
+	border: none;
+	border-radius: 0;
+}
+input.submit:hover{
+	background-color: #3b3b3b;
+	color: #fff;
+}
+ul.short-info-list{
+	list-style-type: none;
+}
+
+.cover-image{
+
+}
+
+
+
+
+
 
 /*************************************/
 /*************************************/
@@ -1069,10 +1161,22 @@ blockquote cite:before {
 	div.title-wrap{
 		top: 2%;
 	}
+
+}
+
+@media only screen and (max-width: 570px ){
+		.single iframe{
+		width: 100%;
+	}
 }
 @media only screen and (min-width: 650px){
+
 	header{
 		min-height: 300px;
+	}
+	div.site-logo{
+	position: relative;
+	bottom: 40%;
 	}
 	.social_media{
 		font-size: 7.0vw;
@@ -1122,11 +1226,7 @@ blockquote cite:before {
 	    bottom: 0;
 
 	}
-	h1 img{ /*Here you would use a plugin(image uploader) OR maybe try to code it*/
-		border: 10px solid rgba(58,58,58,0.5);
-		position: relative;
-		bottom: 20px;
-	}
+
 	.search-form {
 		width: 25%;
 		position: relative;
@@ -1239,9 +1339,6 @@ nav ul.nav li a{
 
 }
 
-
-
-
 }
 
 
@@ -1256,6 +1353,7 @@ nav ul.nav li a{
 		position: relative;
 		min-height: 300px;
 	}
+
 	header:after{
 	  content: "";
 	  background-color: rgba(0,0,0,0.5);
@@ -1352,11 +1450,9 @@ nav ul.nav li a{
 	    bottom: 0;
 
 	}
-	h1 img{ /*FIX THIS!!!!!!!!!!!!!!!!!!!!*/
-		border: 10px solid rgba(58,58,58,0.5);
-		position: relative;
-		bottom: 60px;
-	}
+
+
+
 
 	/*MAIN NAV MENU*/
 
@@ -1416,7 +1512,6 @@ nav ul.nav li a{
 	/*JOB DESCRIPTION- custom field. to improve use meta box technique*/
 	section#short-info{
 		position: relative;
-		height: 105px;
 		background-color: #f7f7f7;
 		border-bottom: 1px solid #ccc;
 		margin-bottom: 35px;
@@ -1614,6 +1709,75 @@ nav ul.nav li a{
 	width: 100%;
 }
 
+/* CONTACT PAGE*/
+
+.page #ninja_forms_form_1{
+	background-color: #323232;
+	padding: 10px;
+	border-radius: 2px;
+	width: 75%;
+	margin-left: auto;
+	margin-right: auto;
+	
+}
+.page .ninja-forms-all-fields-wrap{
+	font-size: 14px;
+	color: #fff;
+	padding: 20px;
+}
+.page .ninja-forms-required-items{
+	font-weight: normal;
+	margin-bottom: 20px;
+	text-align: center;
+	font-size: 12px;
+	letter-spacing: 1px;
+}
+.ninja-forms-form-wrap div label{
+	font-weight: normal;
+	font-size: 16px;
+
+}
+span.ninja-forms-req-symbol{
+	color: #FF4A4A;
+}
+.ninja-forms-field{
+	font-size: 20px;
+	line-height: 20px;
+}
+div#ninja_forms_field_4_div_wrap{
+	outline: 1px solid #ccc;
+	text-align: center;	
+	padding: 5px;
+}
+input#ninja_forms_field_4{
+	max-width: 75%;
+	display: block;
+	margin: 0 auto;
+}
+div#nf_submit_1{
+	width: 100%;
+}
+div input.submit{
+	color: #323232;
+	padding: 5px;
+	width: inherit;
+	font-family: 'domine';
+	right: 0;
+	border: none;
+	border-radius: 0;
+	height: 45px;
+}
+input.submit:hover{
+	background-color: #3b3b3b;
+	color: #fff;
+}
+
+
+
+
+
+
+
 
 
 
@@ -1622,6 +1786,7 @@ nav ul.nav li a{
 	clear: both;
 	border-top-style: solid;
 	border-top-width: 10px;
+	line-height: 20px;
 }
 
 .footer .social_media {
