@@ -25,9 +25,9 @@ License: GPLv3
 == ARCHIVE AND TAXONOMY PAGES (portfolio and filter)
 == SINGLE PAGE STYLES
 == SEARCH PAGE
-== CONTACT PAGE
+== CONTACT PAGE (SEND BUTTON NEEDS A CLASS OF SUBMIT in the form editor! SUPER IMPORTANT!!)
 == SHORT INFO (JOB DESCRIPTION)
-
+== RESUME
 
 == MEDIA QUERIES ==
 
@@ -515,10 +515,6 @@ section.widget{
 .widget ol{
 	padding-top: 15px;
 }
-/*sticky posts*/
-.sticky{
-
-}
 
 /*CONTENT*/
 #content {
@@ -775,7 +771,8 @@ section p{
 
 }
 .latest-work .work-info{
-	background-color: #fff7ed;
+	border-left: 1px solid #323232;
+	border-right: 1px solid #323232;
 }
 .work-info .short-excerpt {
 	text-align: left;
@@ -1136,10 +1133,60 @@ input.submit:hover{
 ul.short-info-list{
 	list-style-type: none;
 }
-
-.cover-image{
+/*RESUME PAGE STYLES*/
+.post-type-archive-resume article{
+		text-align: center;
+}
+.post-type-archive-resume img.wp-post-image{
+	position: relative;
+	outline: 3px solid #3b3b3b;
 
 }
+.post-type-archive-resume main#content{
+	text-align: left;
+	padding: 10px 5px;
+}
+.post-type-archive-resume div.entry-content div{
+	line-height: 24px;
+	padding-bottom: 50px;
+	font-size: 16px;
+	max-width: 1000px;
+	margin: 0 auto;
+	text-align: left;
+}
+.post-type-archive-resume div.entry-content h3{
+	font-size: 20px;
+	padding: 5px 5px 2px 5px;
+	margin-bottom: 20px;
+	border-bottom: 1px solid #3b3b3b;
+}
+.post-type-archive-resume div.entry-content div:nth-child(1){
+	font-size: 28px;
+	margin-top: 20px;
+}
+.post-type-archive-resume div.entry-content div:nth-child(2){
+	font-style: italic;
+}
+.post-type-archive-resume div.entry-content div:nth-child(4){
+	margin-bottom: 20px;
+}
+.post-type-archive-resume div.entry-content div:nth-child(4),
+.post-type-archive-resume div.entry-content div:nth-child(3),
+.post-type-archive-resume div.entry-content div:nth-child(2),
+.post-type-archive-resume div.entry-content div:nth-child(1){
+	padding-bottom: 15px;
+	text-align: center;
+
+}
+.post-type-archive-resume div.entry-content div:nth-child(4) h3,
+.post-type-archive-resume div.entry-content div:nth-child(3) h3,
+.post-type-archive-resume div.entry-content div:nth-child(2) h3,
+.post-type-archive-resume div.entry-content div:nth-child(1) h3{
+	display: none;
+}
+
+
+
 
 
 
@@ -1610,6 +1657,13 @@ nav ul.nav li a{
 		padding: 0 10px;
 		margin-bottom: 15px;
 	}
+
+
+
+
+
+
+
 	/*PAGE NAVI*/
 	.pagination{
 		padding: 20px 0;

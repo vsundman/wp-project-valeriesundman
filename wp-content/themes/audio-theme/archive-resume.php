@@ -6,41 +6,51 @@
 		<?php while( have_posts() ): the_post(); ?>
 
 		<article id="post-<?php the_ID(); ?>" <?php post_class();//this adds extra classes to the post ?>>
-
-		<a href="<?php the_permalink(); ?>"><?php the_post_thumbnail('medium'); ?></a>
-
-			<h2 class="entry-title"> 
-					<?php the_title(); ?> 
-			</h2>
-			
+			<?php the_post_thumbnail('thumbnail');?>
 			<div class="entry-content">
-				<?php the_content(); ?>
-							
+
+				<?php 
+
+				if(get_the_content() != ''):
+					the_content();
+				else:
+					//get all the fields in the field group!
+					//
+			$fields = get_field_objects();
+
+			if( $fields )
+			{
+				foreach( $fields as $field_name => $field )
+				{
+					echo '<div>';
+						echo '<h3>' . $field['label'] . '</h3>';
+						echo $field['value'];
+					echo '</div>';
+				}
+			}
+			endif;
+
+				?> 
+				
+
+				
 
 			</div>
-
+	
 		</article><!-- end post -->
 
 		<?php endwhile; ?>
 
-		<div class="pagination">
-			<?php 
-			//run pagenavi if the plugin exists, otherwise do the default prev/next buttons
-			if( function_exists('wp_pagenavi') && !wp_is_mobile() ): wp_pagenavi();
-			else: previous_posts_link('&larr; Newer Posts '); 
- 			next_posts_link(' Older Posts &rarr;');
- 			endif;
-			?>
 
-		</div>
+
 
 	<?php else: ?>
 
-	<h2>Sorry, no posts found</h2>
-	<p>Try using the search bar instead</p>
+	<h2>Sorry, no resumes found</h2>
 
 	<?php endif;  //end THE LOOP ?>
 
 </main><!-- end #content -->
+
 
 <?php get_footer(); //include footer.php ?>

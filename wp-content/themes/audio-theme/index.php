@@ -10,7 +10,6 @@
 
 	<main id="content">
 
-
 		<?php if( have_posts() ): //the loop?>
 
 		<?php while( have_posts() ): the_post(); ?>
