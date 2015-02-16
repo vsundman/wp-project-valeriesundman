@@ -35,6 +35,17 @@
 				<span class="date"> Posted on: <a href="<?php the_permalink(); ?>"><?php the_date(); ?></a></span>
 				<span class="categories"><?php the_category(); ?></span>
 				<span class="tags"><?php the_tags(); ?></span> 
+				
+		<?php // If comments are open or we have at least one comment, load up the comment template.
+			if ( comments_open() || get_comments_number() ) :
+				comments_template();
+			endif;
+
+			?>
+
+
+
+
 			</div><!-- end postmeta -->			
 		</article><!-- end post -->
 

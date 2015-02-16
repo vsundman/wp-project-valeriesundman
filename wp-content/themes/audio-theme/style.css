@@ -28,6 +28,8 @@ License: GPLv3
 == CONTACT PAGE (SEND BUTTON NEEDS A CLASS OF SUBMIT in the form editor! SUPER IMPORTANT!!)
 == SHORT INFO (JOB DESCRIPTION)
 == RESUME
+== BLOG
+
 
 == MEDIA QUERIES ==
 
@@ -38,13 +40,10 @@ License: GPLv3
 */
 
 /*GLOBAL STYLES*/
-html 
- {
- height: 100%;
- margin-bottom: 1px;
- overflow-y: scroll;
- overflow-x: hidden;
- }
+html #wpadminbar{
+
+	min-width: 270px;
+}
 body{
 	font-family: domine, serif;
 	margin: 0 auto;
@@ -114,10 +113,10 @@ a:hover{
 	text-decoration: underline;
 }
 table{
-	line-height: 50px;
 	outline: 1px solid #C4C4C4;
 	width: 100%;
 	margin: 15px 0;
+	padding: 0;
 }
 table tbody{
 	padding: 25px 10px;
@@ -162,13 +161,7 @@ dd {
 	background:none no-repeat left top;
 	padding-left: 40px;
 }
-ul li ul{
-	width: 100%;
-	margin-left: 20px;
-}
-ul li ul li ul{
-	margin-left: 35px;
-}
+
 ol{
 	padding-left: 15px;
 }
@@ -397,35 +390,38 @@ div.site-logo{
 
 
 /*MAIN NAV MENU*/
-nav{
+nav.menu-main-menu-container{
 	.navposition: relative;
 	min-height: 100px;
 	max-height: 100%;
 }
-nav ul.nav {
+nav.menu-main-menu-container ul.nav {
 	display: block;
 	position: relative;
 	width: 100%;
 	text-align: center;
-	background-color: rgba(26,30,36,1);
+
 }
-nav ul.nav li{
+nav.menu-main-menu-container ul.nav li{
 	display: block;
 	font-size: 28px;
-	padding: 15px 0;
+	background-color: rgba(26,30,36,1);
 }
-nav ul.nav li a{
+nav.menu-main-menu-container ul.nav li a{
 	text-decoration: none;
 	background-color: rgba(13,13,13, 0);
 	width: 100%;
 	color: #fff;
+	padding: 30px 0;
+	line-height: 40px;
+	display: inline-block;
 }
-nav ul.nav li a:hover{
+nav.menu-main-menu-container ul.nav li a:hover{
 	cursor: pointer;
+	background-color: #3B3B3B;
 }
-nav ul.nav li:hover{
-		background-color: #3B3B3B;
-}
+
+
 
 /*WELCOME TEXT*/
 .welcome-wrap{
@@ -523,7 +519,7 @@ section.widget{
 	line-height: 34px;
 	font-size: 14px;
 	word-wrap: break-word;
-	padding: 0 10px;
+	margin: 0 10px;
 	clear: both;
 }
 #content li{
@@ -608,18 +604,43 @@ section p{
 	box-shadow: 0px 0px 10px #fff;
 	border-radius: 50%;
 }
-
+.footer nav{
+		.navposition: relative;
+	min-height: 100px;
+	max-height: 100%;
+}
+.footer nav ul.nav{
+	display: inline;
+	position: relative;
+	width: 100%;
+	text-align: center;
+}
 
 .footer nav ul.nav li{
 	font-size: 16px;
-	text-align: center;
 	width: 50%;
 	float: left;
 	outline: 1px solid #252733;
-	padding: 25px 0;
 	background-color: rgba(26,30,36,1);
-	max-height: 17px;
+
 }
+.footer nav ul.nav li a{
+	text-decoration: none;
+	color: #fff;
+	padding: 30px 0;
+	display: inline-block;
+	width: 100%;
+}
+.footer nav ul.nav li a:hover{
+	background-color: #3b3b3b;
+}
+
+
+
+
+
+
+
 /*DEMO REEL STYLES*/
 .home section#demo{
 	text-align: center;
@@ -629,6 +650,9 @@ section p{
 	font-size: 24px;
 	font-weight: normal;
 	padding-bottom: 20px;
+}
+.home section#demo iframe{
+	width: 100%;
 }
 
 
@@ -788,10 +812,17 @@ section p{
 /*ARCHIVE AND TAXONOMY PAGES (portfolio and filter)*/
 
 .archive main#content{
-	width: 100%;
+	width: 90%;
 	padding: 0;
 	overflow: hidden;
 	text-align: center;
+}
+.category main#content,
+.tag main#content{
+	text-align: left;
+	overflow: hidden;
+	width: 90%;
+	margin: 0 10px;
 }
 .archive section.filter{
 	text-align: center;
@@ -1029,7 +1060,8 @@ main.error h2.sorry{
 	margin-top: 15px;
 
 }
-.single article img{
+.single article img,
+.page main img{
 	float: left;
 	margin: 14px;
 	box-shadow: 1px 3px 5px #1A1E24;
@@ -1184,10 +1216,34 @@ ul.short-info-list{
 .post-type-archive-resume div.entry-content div:nth-child(1) h3{
 	display: none;
 }
+/*BLOG*/
 
+.blog section{
+	padding: 30px 30px 100px 30px;
+	border-top: 1px solid #3b3b3b;
 
+}
+.blog section.post h2 a{
+	color: #000;
+	font-family: 'Abel';
+	font-size: 40px;
+}
+.blog .post h2{
+	padding-bottom: 20px;
+}
+.blog section.post span{
+	display: block;
+}
+.blog span.date{
+	font-style: italic;
+}
+.blog span.category ul{
+	display: inline-block;
+}
+.blog section.post:nth-child(even){
+	background-color: #FDFDFC;
 
-
+}
 
 
 
@@ -1217,7 +1273,9 @@ ul.short-info-list{
 	}
 }
 @media only screen and (min-width: 650px){
-
+	.home section#demo iframe{
+		width: 500px;
+	}
 	header{
 		min-height: 300px;
 	}
@@ -1299,7 +1357,7 @@ ul.short-info-list{
 		width: 75%; /* so it doesnt interfere with the search bar*/
 		text-align: right; /*list goes from right to left*/
 		line-height: 0;
-		padding-bottom: 20px;
+		padding-bottom: 35px;
 		margin-top: 25px;
 		height: auto;
 	}
@@ -1319,7 +1377,7 @@ ul.short-info-list{
 
 	/*MAIN NAV MENU*/
 
-nav ul.nav{
+nav.menu-main-menu-container ul.nav{
 	position: relative;
 	width: 100%;
 	text-align: center;
@@ -1327,22 +1385,25 @@ nav ul.nav{
 	padding: 0;
 	margin: 0;
 	color: #fff;
+	background-color: rgba(26,30,36,1);
+
 }
 
- nav ul.nav li{
+ nav.menu-main-menu-container ul.nav li{
  	display: inline-block;
 	font-size: 1.2rem;
-	width: 11rem;
-	outline: none;
-	padding: 20px 10px;
 	margin: 0;
+	padding: 0;
 }
- nav ul.nav li:hover{
+ nav.menu-main-menu-container ul.nav li a:hover{
 	background-color: rgba(59,59,59,1);
 }
 
-nav ul.nav li a{
-	padding: 15px 20px;
+nav.menu-main-menu-container ul.nav li a{
+	padding: 30px 10px;
+	min-width: 11rem;
+	margin: 0;
+	display: inline-block;
 }
 
 
@@ -1387,6 +1448,16 @@ nav ul.nav li a{
 }
 
 }
+
+
+
+
+
+
+
+
+
+
 
 
 /*MEDIA QUERIES*/
@@ -1503,29 +1574,35 @@ nav ul.nav li a{
 
 	/*MAIN NAV MENU*/
 
-	nav ul.nav {
+	nav.menu-main-menu-container ul.nav {
 		display: block;
 		position: relative;
 		float: right;
 		bottom: 100px;
 		width: 75%;
 		background-color: transparent;
+
 	}
-	nav ul.nav li{
+	nav.menu-main-menu-container ul.nav li{
 		display: inline;
-		font-size: 18px;
+		font-size: 1.4vw;
 		padding: 0;
 		position: relative;
 		background-color: transparent;
+		margin: 0;
+
 	}
-	nav ul.nav li a{
+	nav.menu-main-menu-container ul.nav li a{
 		text-decoration: none;
-		padding: 30px;
+		padding: 20px;
 		color: #f7f7f7;
+		display: inline;
+		line-height: 0;
+
 	}
-	nav ul.nav li a:hover{
+	nav.menu-main-menu-container ul.nav li a:hover{
 		background-color: rgba(59,59,59,1);
-		padding: 25px 30px;
+		padding: 25px 20px;
 	}
 
 
@@ -1627,7 +1704,6 @@ nav ul.nav li a{
 	#content {
 		width: 65%;
 		float: left;
-		padding: 0 20px;
 		line-height: 34px;
 		font-size: 14px;
 		word-wrap: break-word;
@@ -1729,7 +1805,14 @@ nav ul.nav li a{
 	text-align: center;
 	position: relative;
 }
-
+.category main#content,
+.tag main#content,
+.date main#content{
+	text-align: left;
+	overflow: hidden;
+	width: 65%;
+	margin: 0 10px;
+}
 .archive .portfolio div.entry-content{
 
   position: absolute;
@@ -1853,12 +1936,13 @@ input.submit:hover{
 		padding: 0;
 }
 
-
 .footer nav ul.nav{
 	position: relative;
 	width: 100%;
 	text-align: center;
 	bottom: 0;
+
+
 }
 
 .footer nav ul.nav li{
@@ -1866,6 +1950,8 @@ input.submit:hover{
 	width: 16.6%;
 	outline: none;
 	background-color: transparent;
+	padding-top: 10px;
+	line-height: 30px;
 
 }
 .footer nav ul.nav li:hover{
@@ -1874,11 +1960,31 @@ input.submit:hover{
 
 .footer nav ul.nav li a{
 	padding: 0;
+	display: inline;
+
 }
 .footer nav ul.nav li a:hover{
 	border-bottom-color: #fff;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	background-color: transparent;
+	}
+}
+@media screen and (min-width: 1150px){
+		
+	nav.menu-main-menu-container ul.nav li{
+		font-size: 1.3vw;
+	}
+}
+@media screen and (min-width: 1500px){
+		
+	nav.menu-main-menu-container ul.nav li{
+		font-size: 1.1vw;
+	}
+}
+@media screen and (min-width: 1626px){
+		
+	nav.menu-main-menu-container ul.nav li{
+		font-size: 1.05vw;
 	}
 }
